@@ -1,10 +1,14 @@
 // Dependencies
 require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const app = express()
 
-// Controller
+// Controllers
 app.use('/posts', require('./controllers/posts'))
 
 // Home Route
