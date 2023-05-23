@@ -4,6 +4,9 @@ const express = require('express')
 
 const app = express()
 
+// Controller
+app.use('/posts', require('./controllers/posts'))
+
 // Home Route
 app.get('/', (req, res) => {
     res.status(200).json({message: "Home Page"})
