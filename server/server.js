@@ -2,10 +2,12 @@
 require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
-
 const app = express()
 
-// Controller
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Controllers
 app.use('/posts', require('./controllers/posts'))
 
 // Home Route
@@ -21,5 +23,4 @@ app.get('*', (req, res) => {
 // Listener
 app.listen(process.env.PORT, () => {
     console.log(`Server Running on port ${process.env.PORT}...`)
-
 })
