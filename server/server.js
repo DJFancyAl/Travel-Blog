@@ -1,6 +1,7 @@
 // Dependencies
 require('dotenv').config()
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.get('*', (req, res) => {
 })
 
 // Listener
-app.listen(3000, () => {
-    console.log("Server Running on port 3000...")
+app.listen(process.env.PORT, () => {
+    console.log(`Server Running on port ${process.env.PORT}...`)
+
 })
