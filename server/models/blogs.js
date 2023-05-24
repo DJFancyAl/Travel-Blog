@@ -4,7 +4,7 @@ const blogSchema = new mongoose.Schema({
     title: {type: String, required: true},
     author: {type: String, default: 'Anonymous'},
     pic: {type: String}, 
-    date: {type:Date},
+    date: { type : Date, default: Date.now },
     body: {type: String, required: true}
 });
 

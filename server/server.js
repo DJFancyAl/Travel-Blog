@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Controllers
 app.use('/blogs', require('./controllers/blogs'))
+app.use('/authors', require('./controllers/authors'))
 
 // Home Route
 app.get('/', (req, res) => {
