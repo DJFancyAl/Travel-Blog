@@ -8,7 +8,7 @@ const app = express()
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Controllers
-app.use('/posts', require('./controllers/posts'))
+app.use('/blogs', require('./controllers/blogs'))
 
 // Home Route
 app.get('/', (req, res) => {
