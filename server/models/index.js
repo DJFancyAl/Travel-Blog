@@ -12,3 +12,4 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Exports
 module.exports.Blog = require('./blogs.js')
+module.exports.Author = require('./authors.js')
