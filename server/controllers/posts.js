@@ -1,11 +1,16 @@
 // Dependencies
 require('dotenv').config()
 const router = require('express').Router()
-const db = require('../models')
+const {Post} = require('../models')
 
 // Get All Posts
-router.get('/', (req, res) => {
-    res.status(200).json({message: "Gets all Posts"})
+router.get('/', async (req, res) => {
+    try {
+        const foundPosts = await Post.find()
+        res.status(200).json(foundPosts)
+    } catch (err) {
+        res.status(400).json({error: err})
+    }
 })
 
 // Post View
@@ -14,8 +19,13 @@ router.get('/:id', (req, res) => {
 })
 
 // Create Post
-router.get('/', (req, res) => {
-    res.status(200).json({message: "Creates Post"})
+router.post('/', async (req, res) => {
+    try {
+        const createdPost = await Post.create(req.body)
+        res.status(200).json({message: "Creates Post"})
+     } catch (err) {
+        res.status(400).json({error: err})
+     }
 })
 
 // Update Post
