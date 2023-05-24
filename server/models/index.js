@@ -11,3 +11,4 @@ mongoose.connect(process.env.MONGO_URI, {
 .catch(e=>console.log(e));
 
 // Exports
+module.exports.Blog = require('./blogs.js')

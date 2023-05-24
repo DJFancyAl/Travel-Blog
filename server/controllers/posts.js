@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
 // Update Post
 router.put('/:id', (req, res) => {
     res.status(200).json({message: "Update Post"})
-
+})
 // Delete Post
 router.delete('/:id', (req, res) => {
     res.status(200).json({message: "Deletes Post"})
