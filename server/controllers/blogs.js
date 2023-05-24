@@ -14,8 +14,13 @@ router.get('/', async (req, res) => {
 })
 
 // Blog View
-router.get('/:id', (req, res) => {
-    res.status(200).json({message: "View One Blog"})
+router.get('/:id', async (req, res) => {
+    try{
+        const foundBlog = await Blog.findById(req.params.id)
+        res.status(200).json(foundBlog)
+    } catch (err) {
+        res.status(400).json({error: err})
+     }
 })
 
 // Create Blog
@@ -29,16 +34,27 @@ router.post('/', async (req, res) => {
 })
 
 // Update Blog
-router.put('/:id', (req, res) => {
-    res.status(200).json({message: "Update Post"})
+router.put('/:id', async (req, res) => {
+    try {
+        const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body)
+        res.status(200).json({message: "Updated Blog"})
+    } catch (err) {
+        res.status(400).json({error: err})
+    }
 })
+
 // Delete Blog
-router.delete('/:id', (req, res) => {
-    res.status(200).json({message: "Deletes Post"})
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletedBlog = await Blog.findByIdAndDelete(req.params.id)
+        res.status(200).json({message: "Blog Deleted!"})
+    } catch (err) {
+        res.status(400).json({error: err})
+     }
 })
 
 // Wildcard
-router.delete('*', (req, res) => {
+router.get('*', (req, res) => {
     res.status(404).json({error: "Page not found."})
 })
 
