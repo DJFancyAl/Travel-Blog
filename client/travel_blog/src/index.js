@@ -1,23 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
 //import reportWebVitals from './reportWebVitals';
 
- const root = ReactDOM.createRoot(document.getElementById('root'));
- root.render(
-   <React.StrictMode>
-     <App />
-   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 // HAMBURGER FUNCTION
 //function navSlide() {
 //  const menubtn = document.querySelector(".menubtn");
 //  const nav = document.querySelector(".navlinks");
- // const navLinks = document.querySelectorAll(".navlinks li");
-  
-  //}
+// const navLinks = document.querySelectorAll(".navlinks li");
+
+//}
 
 //navSlide();
 
