@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
 
 function ShowBlog() {
   // States
@@ -17,12 +20,13 @@ function ShowBlog() {
   }, [id])
 
   return (
-    <div>
-        <h1>{blog.title}</h1>
-        <h4>Written By: {blog.author}</h4>
-        {blog.pic && <img src={blog.pic} alt={blog.title} />}
-        <p>{blog.body}</p>
-    </div>
+    <Container>
+      <h1>{blog.title}</h1>
+      <p class="lead">Written By: {blog.author}</p>
+      {blog.pic && <img src={blog.pic} alt={blog.title} />}
+      <p>{blog.body}</p>
+      <Link to={`/blogs/edit/${blog._id}`}><Button>Edit Blog</Button></Link>
+    </Container>
   )
 }
 

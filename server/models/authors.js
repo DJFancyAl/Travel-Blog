@@ -7,6 +7,7 @@ const authorSchema = new Schema({
         unique: true,
         default: 'Anonymous'
     },
+    bio: String,
     pic: String
 });
 
