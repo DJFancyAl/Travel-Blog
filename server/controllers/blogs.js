@@ -1,13 +1,14 @@
 // Dependencies
 require('dotenv').config()
 const router = require('express').Router()
-const {Blog} = require('../models')
+const {Blog, Author} = require('../models')
 
 // Get All Blogs
 router.get('/', async (req, res) => {
     try {
         const foundBlogs = await Blog.find()
-        res.status(200).json(foundBlogs)
+        const foundAuthors = await Author.find()
+        res.status(200).json({blogs: foundBlogs, authors: foundAuthors})
     } catch (err) {
         res.status(400).json({error: err})
     }

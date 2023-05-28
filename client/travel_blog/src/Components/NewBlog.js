@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function NewBlog() {
+function NewBlog({ authors }) {
   // State
   const navigate = useNavigate()
   const [newBlog, setNewBlog] = useState({})
@@ -11,7 +12,6 @@ function NewBlog() {
   // Handle Change
   const handleChange = (e) => {
     const { id, value } = e.target
-  
     setNewBlog({
       ...newBlog,
       [id]: value
@@ -21,25 +21,19 @@ function NewBlog() {
   // Handle Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch('http://localhost:3001/blogs', {
+    const response = fetch('http://localhost:3001/blogs', {
       method: "post",
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(
-        {
-          "title": newBlog.title,
-          "pic": newBlog.pic,
-          "body": newBlog.body
-        }
-      )
+      body: JSON.stringify(newBlog)
     })
     const data = await response.json()
     navigate(`/blogs/${data._id}`)
   }
 
   return (
-    <>
+    <Container>
       <h1>Create a New Blog</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="title">
@@ -61,7 +55,7 @@ function NewBlog() {
           Submit
         </Button>
       </Form>
-    </>
+    </Container>
   )
 }
 

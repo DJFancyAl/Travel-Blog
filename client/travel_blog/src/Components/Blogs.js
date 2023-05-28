@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
 
-function Blogs( { blogs }) {
-
+function Blogs( { blogs } ) {
+  
   // Create the Blog List
   const blogList = blogs.map(blog => {
     return (
@@ -16,10 +17,10 @@ function Blogs( { blogs }) {
   }) 
 
   return (
-    <div>
+    <Container>
         <h1>View All Blogs</h1>
         {blogList}
-    </div>
+    </Container>
   )
 }
 
