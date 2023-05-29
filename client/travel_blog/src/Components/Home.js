@@ -1,25 +1,39 @@
-<<<<<<< HEAD
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <Link to={`/blogs`}>Blogs Page</Link>
-    </div>
-  );
-=======
-import { Link } from 'react-router-dom'
-import Container from 'react-bootstrap/Container';
+import image1 from "../images/image1.png";
+import image2 from "../images/image2.png";
+import image3 from "../images/image3.png";
 
 function Home() {
   return (
     <Container>
-        <h1>Home Page</h1>
-        <Link to={`/blogs`}>Blogs Page</Link>
+      <h1>Home Page</h1>
+      <Row>
+        <Col sm={4}>
+          <Container className="custom-container">
+            <img src={image1} alt="Container 1" />
+            <p>TRAVEL BLOG</p>
+          </Container>
+        </Col>
+        <Col sm={4}>
+          <Container className="custom-container">
+            <img src={image2} alt="Container 2" />
+            <p>DESTINATIONS</p>
+          </Container>
+        </Col>
+        <Col sm={4}>
+          <Container className="custom-container">
+            <img src={image3} alt="Container 3" />
+            <p>FEATURED</p>
+          </Container>
+        </Col>
+      </Row>
+      <Link to={`/blogs`}>Blogs Page</Link>
     </Container>
-  )
->>>>>>> b0ba639f892737576b1ca564c3d5a833f37298e6
+  );
 }
 
 export default Home;
