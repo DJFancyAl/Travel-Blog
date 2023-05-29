@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../css/style.css";
 
 import image1 from "../images/image1.png";
 import image2 from "../images/image2.png";
@@ -21,7 +22,7 @@ function Home() {
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image2} alt="Container 2" />
-            <p>DESTINATIONS</p>
+            <p>DESTINATION</p>
           </Container>
         </Col>
         <Col sm={4}>
@@ -31,7 +32,14 @@ function Home() {
           </Container>
         </Col>
       </Row>
-      <Link to={`/blogs`}>Blogs Page</Link>
+      <Link to="/blogs">Blogs Page</Link>
+      <style>
+        {`
+        .custom-container {
+          flex: 1;
+        }
+      `}
+      </style>
     </Container>
   );
 }
