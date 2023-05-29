@@ -3,10 +3,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import '../App.css';
+import { useNavigate } from "react-router-dom";
 
-function NavBar( { author } ) {
+function NavBar( { author, setAuthor } ) {
+  const navigate = useNavigate()
   const style= { color: 'inherit', textDecoration: 'inherit'}
+
+  // Logout
+  const logout = () => {
+    setAuthor({})
+    localStorage.clear();
+    navigate('/')
+  }
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -20,11 +28,14 @@ function NavBar( { author } ) {
           </Nav>
         </div>
         {author._id ?
-          <Button as={Link} to='./authors/profile'>Hello {author.username}!</Button>
+          <div className='d-flex align-items-center'>
+            <Button className='mx-3' as={Link} to='./authors/profile'>Hello {author.username}!</Button>
+            <Button onClick={logout}>Logout</Button>
+          </div>
           :
           <div className='d-flex align-items-center'>
             <Button className='mx-3' as={Link} to='./authors/register'>Register</Button>
-            <Button as={Link} to='./blogs'>Login</Button>
+            <Button as={Link} to='./authors/login'>Login</Button>
           </div>
           }
       </Container>

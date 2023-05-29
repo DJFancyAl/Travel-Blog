@@ -26,6 +26,7 @@ function Profile( { author, setAuthor} ) {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
+            "x-access-token": localStorage.getItem('token')
         },
         body: JSON.stringify(changes)
         })
@@ -47,7 +48,7 @@ function Profile( { author, setAuthor} ) {
             <Row>
                 <Col xs={12} lg={6}>
                     <h1>Profile</h1>
-                    <h3>{changes.username}</h3>
+                    <h3>{author.username}</h3>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="username">
                         <Form.Label>Change Username</Form.Label>

@@ -42,33 +42,33 @@ function Register( { setAuthor }) {
 
     return (
         <Container>
-        <h1>Register New User:</h1>
-            <Row className="justify-content-center">
-                <Col sm={12} md={6}>
-                    <Form onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="username">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control type="text" placeholder="Your title..." onChange={handleChange} />
-                    </Form.Group>
+            <h1>Register New User:</h1>
+                <Row className="justify-content-center">
+                    <Col xs={12} md={6}>
+                        <Form onSubmit={handleSubmit}>
+                        <Form.Group className="mb-3" controlId="username">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control type="text" placeholder="Your Username..." onChange={handleChange} />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Create Password" onChange={handleChange} />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="password">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" placeholder="Create Password" onChange={handleChange} />
+                        </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="confirmPassword">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control type="password" placeholder="Confirm password" onChange={handleChange} />
-                    </Form.Group>
+                        <Form.Group className="mb-3" controlId="confirmPassword">
+                            <Form.Label>Confirm Password</Form.Label>
+                            <Form.Control type="password" placeholder="Confirm password" onChange={handleChange} />
+                        </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                    </Form>
-                </Col>
-            </Row>
-    </Container>
-  )
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
+                        </Form>
+                    </Col>
+                </Row>
+        </Container>
+    )
 }
 
 export default Register

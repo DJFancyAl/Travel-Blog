@@ -1,5 +1,4 @@
 // Dependencies
-// require('dotenv').config()
 const router = require('express').Router()
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
@@ -78,7 +77,7 @@ router.post('/login', async (req, res) => {
         } else {
             const id = author._id.valueOf()    
             const token = createToken(id)
-        
+
             res.status(200).json({token: token, author: author})
         }
     } catch (err) {
@@ -90,7 +89,7 @@ router.post('/login', async (req, res) => {
 })
 
 // Update Author
-router.put('/:id', async (req, res) => {
+router.put('/:id', validateToken, async (req, res) => {
     try {
         const updatedAuthor = await Author.findByIdAndUpdate(req.params.id, req.body)
         res.status(200).json({message: "Updated Author"})
