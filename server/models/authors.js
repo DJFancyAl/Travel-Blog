@@ -4,7 +4,6 @@ const { Schema } = mongoose
 const bcrypt = require('bcrypt');
 
 
-
 // Author Schema
 const authorSchema = new Schema({
     username: {
