@@ -24,30 +24,30 @@ const authorSchema = new Schema({
 
 // Create a password salt
 authorSchema.pre('save', function(next) {
-    const author = this;
+  const author = this;
   
-    // Only hash the password if it has been modified (or is new)
-    if (!author.isModified('password')) {
-      return next();
+  // Only hash the password if it has been modified (or is new)
+  if (!author.isModified('password')) {
+    return next();
+  }
+  
+  // Generate a salt
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) {
+      return next(err);
     }
-  
-    // Generate a salt
-    bcrypt.genSalt(10, function(err, salt) {
+    
+    // Hash the password using the salt
+    bcrypt.hash(author.password, salt, function(err, hash) {
       if (err) {
         return next(err);
       }
-  
-      // Hash the password using the salt
-      bcrypt.hash(author.password, salt, function(err, hash) {
-        if (err) {
-          return next(err);
-        }
-  
-        // Override the cleartext password with the hashed one
-        author.password = hash;
-        next();
-      });
+      
+      // Override the cleartext password with the hashed one
+      author.password = hash;
+      next();
     });
+  });
   });
 
 

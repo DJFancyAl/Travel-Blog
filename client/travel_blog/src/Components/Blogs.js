@@ -13,6 +13,8 @@ function Blogs( { blogs } ) {
         <p>{blog.body.slice(0, 200)}</p>
         <Link to={`/blogs/${blog._id}`}>Read More</Link>
       </div>
+
+      
     )
   }) 
 
