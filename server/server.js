@@ -5,7 +5,17 @@ const bodyParser = require('body-parser')
 const app = express()
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+// configure the app to use bodyParser()
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.header("Access-Control-Allow-Headers", "Origin, x-access-token, X-Requested-With, Content-Type, Accept, Authorization");
+    next();
+});
 
 // Controllers
 app.use('/blogs', require('./controllers/blogs'))
