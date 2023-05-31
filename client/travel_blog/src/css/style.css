@@ -6,18 +6,29 @@
 }
 
 .custom-container {
-  height: 300px;
-  width: 100%;
+  height: 200px;
+  width: 200px; /* Set the desired width */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .custom-container img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  max-width: 1git00%;
-  max-height: 100%;
+}
+
+.image-container {
+  width: 100px; /* Set the desired width KEEP THIS FOR THE BOTTOM IMAGES */
+  height: 100px; /* Set the desired height */
+  overflow: hidden; /* Optional - hides any overflow */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 nav {
@@ -37,6 +48,10 @@ nav {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 20px;
+}
+
+.brand-text {
+  font-size: 1.5rem; /* Adjust the font size as needed */
 }
 
 .navlinks {

@@ -7,16 +7,23 @@ import "../css/style.css";
 import image1 from "../images/image1.png";
 import image2 from "../images/image2.png";
 import image3 from "../images/image3.png";
+import largeImage from "../images/largeImage.png";
 
 function Home() {
   return (
     <Container>
-      <h1>Home Page</h1>
+      {/* New container */}
+      <Container className="top-container">
+        <img src={largeImage} alt="Large Image" />
+      </Container>
+
       <Row>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image1} alt="Container 1" />
-            <p>TRAVEL BLOG</p>
+            <Link to="/blogs" className="container-link">
+              TRAVEL BLOG
+            </Link>
           </Container>
         </Col>
         <Col sm={4}>
@@ -37,6 +44,22 @@ function Home() {
         {`
         .custom-container {
           flex: 1;
+        }
+
+        .top-container {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .top-container img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .container-link {
+          color: #000;
+          text-decoration: none;
+          font-weight: bold;
         }
       `}
       </style>
