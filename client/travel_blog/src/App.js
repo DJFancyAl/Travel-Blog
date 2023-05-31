@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
-import Home from './Components/Home';
-import Blogs from './Components/Blogs';
-import NewBlog from './Components/NewBlog'
-import ShowBlog from './Components/ShowBlog'
-import EditBlog from './Components/EditBlog';
-import Authors from './Components/Authors';
-import Register from './Components/Register';
-import Login from './Components/Login';
-import Profile from './Components/Profile';
+import Home from './Components/Pages/Home';
+import Blogs from './Components/Pages/Blogs';
+import NewBlog from './Components/Pages/NewBlog'
+import ShowBlog from './Components/Pages/ShowBlog'
+import EditBlog from './Components/Pages/EditBlog';
+import Authors from './Components/Pages/Authors';
+import Register from './Components/Pages/Register';
+import Login from './Components/Pages/Login';
+import Profile from './Components/Pages/Profile';
 import ResponsiveAppBar from './Components/NavBar'
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
     }
 
     getBlogs()
-  }, [])
+  }, [blogs, authors])
 
 
   return (
