@@ -5,16 +5,18 @@ function Post({blog}) {
   return (
     <Container>
         <div className="card">
+            {blog.pic &&
             <div className="card-image">
-                <img src={blog.pic} alt=""></img>
+                <img src={blog.pic} alt={blog.title}></img>
             </div>
+            }
 
             <div className="card-context">
-                Content of the post
+                {blog.body}
             </div>
 
             <div className="info">
-                <Link className="author">Author</Link>
+                <Link className="author">{blog.author}</Link>
                 <p>{blog.date}</p>
             </div>
         </div>
