@@ -4,10 +4,12 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function NewBlog({ authors }) {
+function NewBlog({ author }) {
   // State
   const navigate = useNavigate()
-  const [newBlog, setNewBlog] = useState({})
+  const [newBlog, setNewBlog] = useState({
+    author: author
+  })
 
   // Handle Change
   const handleChange = (e) => {
@@ -21,7 +23,7 @@ function NewBlog({ authors }) {
   // Handle Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = fetch('http://localhost:3001/blogs', {
+    const response = await fetch('http://localhost:3001/blogs', {
       method: "post",
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +31,7 @@ function NewBlog({ authors }) {
       body: JSON.stringify(newBlog)
     })
     const data = await response.json()
-    navigate(`/blogs/${data._id}`)
+    navigate(`/blog/${data._id}`)
   }
 
   return (

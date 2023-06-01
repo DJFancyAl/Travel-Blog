@@ -31,7 +31,7 @@ function EditBlog() {
         body: JSON.stringify(editedBlog)
         })
         
-        navigate(`/blogs/${editedBlog._id}`)
+        navigate(`/blog/${editedBlog._id}`)
     }
 
     // Fetch Blog
