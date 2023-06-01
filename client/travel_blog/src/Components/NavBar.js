@@ -5,6 +5,14 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
+function YourComponent() {
+  const style = {
+    color: "white",
+    textDecoration: "none",
+    fontSize: "1.5rem",
+  };
+}
+
 function NavBar({ author, setAuthor }) {
   const navigate = useNavigate();
   const style = { color: "inherit", textDecoration: "inherit" };
