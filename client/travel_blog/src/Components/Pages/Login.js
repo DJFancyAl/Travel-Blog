@@ -43,7 +43,7 @@ function Login( { setAuthor }) {
 
                     <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Your Password Password" />
+                        <Form.Control type="password" placeholder="Your Password" />
                     </Form.Group>
 
                     <Button variant="primary" type="submit">

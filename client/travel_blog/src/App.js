@@ -51,8 +51,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-            <Route path="/blog/new" element={<NewBlog authors={authors} />} />
-            <Route path="/blog/:id" element={<ShowBlog />} />
+            <Route path="/blog/new" element={<NewBlog author={author._id} />} />
+            <Route path="/blog/:id" element={<ShowBlog author={author._id} />} />
             <Route path="/blog/edit/:id" element={<EditBlog />} />
             <Route path="/authors" element={<Authors authors={authors} />} />
             <Route

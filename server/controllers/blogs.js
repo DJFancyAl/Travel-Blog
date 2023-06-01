@@ -7,6 +7,7 @@ const {Blog, Author} = require('../models')
 router.get('/', async (req, res) => {
     try {
         const foundBlogs = await Blog.find()
+        .populate('author')
         const foundAuthors = await Author.find()
         res.status(200).json({blogs: foundBlogs, authors: foundAuthors})
     } catch (err) {
@@ -16,9 +17,9 @@ router.get('/', async (req, res) => {
 
 // Blog View
 router.get('/:id', async (req, res) => {
-    console.log('hit')
     try{
         const foundBlog = await Blog.findById(req.params.id)
+        .populate('author')
         res.status(200).json(foundBlog)
     } catch (err) {
         res.status(400).json({error: err})

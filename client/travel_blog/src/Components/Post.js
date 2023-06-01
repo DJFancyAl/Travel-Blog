@@ -16,7 +16,7 @@ function Post({ blog }) {
         </div>
 
         <div className="info">
-          <Link className="author">{blog.author}</Link>
+          <Link className="author">{blog.author.name}</Link>
           <p>{blog.date}</p>
         </div>
       </div>

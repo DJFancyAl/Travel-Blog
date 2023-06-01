@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Post from '../Post';
 
 function Blogs( { blogs } ) {
-  
+    
   // Create the Blog List
   const blogList = blogs.map(blog => {
     return (
