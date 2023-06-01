@@ -4,6 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
+import Fade from 'react-bootstrap/Fade';
+import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +13,8 @@ function Profile( { author, setAuthor} ) {
     const navigate = useNavigate()
     const [changes, setChanges] = useState({...author})
     const [alert, setAlert] = useState({})
+    const [open, setOpen] = useState(false)
+    const [showModal, setShowModal] = useState(false);
 
     // Handle Change
     const handleChange = (e) => {
@@ -43,19 +47,34 @@ function Profile( { author, setAuthor} ) {
         if(data.error){
             setAlert({variant: 'danger', message: data.error})
         }
-        setTimeout(() => setAlert({}), 3000)
+        setOpen(true)
+        setTimeout(() => setOpen(false), 4000)
     }
 
-    // Logout
-    const logout = () => {
-        setAuthor({})
-        localStorage.clear();
-        navigate('/')
+    // Delete Profile
+    const deleteProfile = async () => {
+        const response = await fetch(`http://localhost:3001/authors/${author._id}`, {
+            method: "delete",
+            headers: {
+                'Content-Type': 'application/json',
+                "x-access-token": localStorage.getItem('token')
+            }})
+        const data = await response.json()
+        if(data.message) {
+            setAuthor({})
+            localStorage.clear();
+            navigate('/')
+        }
+        if(data.error) {
+            setAlert({variant: 'danger', message: data.error})
+            setOpen(true)
+            setShowModal(false)
+            setTimeout(() => setOpen(false), 4000)
+        }
     }
 
     return (
         <Container>
-            {alert.variant && <Alert variant={alert.variant} onClose={() => setAlert({})} dismissible>{alert.message}</Alert>}
             <Row>
                 <Col xs={12} lg={6}>
                     <h1>Profile</h1>
@@ -82,8 +101,13 @@ function Profile( { author, setAuthor} ) {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">Edit Profile</Button>
-                        <Button variant="secondary" className='mx-3' onClick={logout}>Log Out</Button>
+                        <Button variant="danger" className='mx-3' onClick={() => setShowModal(true)}>Delete Profile</Button>
                     </Form>
+                    <Fade in={open} className='mt-3'>
+                        <div>
+                            <Alert variant={alert.variant} onClose={() => setAlert({})}>{alert.message}</Alert>
+                        </div>
+                    </Fade>
                 </Col>
                 {author.pic &&
                 <Col>
@@ -91,7 +115,26 @@ function Profile( { author, setAuthor} ) {
                 </Col>
                 }
             </Row>
-            
+            <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                backdrop="static"
+                keyboard={false}
+                centered
+            >
+                <Modal.Header closeButton>
+                <Modal.Title>Delete {author.username}?</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                This is your last chance! This will delete your profile and all associated information.
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={() => setShowModal(false)}>
+                    Close
+                </Button>
+                <Button variant="danger" onClick={deleteProfile}>Delete Forever</Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     )
 }
