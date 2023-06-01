@@ -6,6 +6,7 @@ const blogSchema = new mongoose.Schema({
     pic: {type: String}, 
     date: { type : Date, default: Date.now },
     body: {type: String, required: true},
+    comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });
 
 module.exports = mongoose.model('Blog', blogSchema)
