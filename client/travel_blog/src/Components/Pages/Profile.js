@@ -3,12 +3,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 function Profile( { author, setAuthor} ) {
     const navigate = useNavigate()
     const [changes, setChanges] = useState({...author})
+    const [alert, setAlert] = useState({})
 
     // Handle Change
     const handleChange = (e) => {
@@ -22,7 +24,7 @@ function Profile( { author, setAuthor} ) {
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = fetch(`http://localhost:3001/authors/${author._id}`, {
+        const response = await fetch(`http://localhost:3001/authors/${author._id}`, {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
@@ -30,10 +32,18 @@ function Profile( { author, setAuthor} ) {
         },
         body: JSON.stringify(changes)
         })
-        setAuthor({
-            ...author,
-            ...changes
-        })
+        const data = await response.json()
+        if(data.message){
+            setAuthor({
+                ...author,
+                ...changes
+            })
+            setAlert({variant: 'success', message: data.message})
+        }
+        if(data.error){
+            setAlert({variant: 'danger', message: data.error})
+        }
+        setTimeout(() => setAlert({}), 3000)
     }
 
     // Logout
@@ -45,6 +55,7 @@ function Profile( { author, setAuthor} ) {
 
     return (
         <Container>
+            {alert.variant && <Alert variant={alert.variant} onClose={() => setAlert({})} dismissible>{alert.message}</Alert>}
             <Row>
                 <Col xs={12} lg={6}>
                     <h1>Profile</h1>
@@ -52,12 +63,12 @@ function Profile( { author, setAuthor} ) {
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="username">
                         <Form.Label>Change Username</Form.Label>
-                        <Form.Control type="text" placeholder="Your login username..." onChange={handleChange} value={changes.username} />
+                        <Form.Control type="text" placeholder="Your login username..." onChange={handleChange} value={changes.username} required />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="name">
                         <Form.Label>Change Display Name</Form.Label>
-                        <Form.Control type="text" placeholder="The name other users will see..." onChange={handleChange} value={changes.name} />
+                        <Form.Control type="text" placeholder="The name other users will see..." onChange={handleChange} value={changes.name} required />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="pic">
