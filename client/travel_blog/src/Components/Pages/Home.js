@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
+import Card from "react-bootstrap/Card";
+import CardGroup from "react-bootstrap/CardGroup";
+import { useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
+
 import "../../css/style.css";
 
 import image1 from "../../images/image1.png";
@@ -9,80 +12,112 @@ import image2 from "../../images/image2.png";
 import image3 from "../../images/image3.png";
 
 function Home() {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
+
+  let imgs = [
+    "https://wallpapercrafter.com/th800/33038-Italy-coast-4K-4k-wallpaper-4K-Tyrrhenian-Sea-houses-sky-clouds-booking-rest-travel.jpg",
+    "https://memes.co.in/wallpapers/uploads/1625904083.jpg",
+    "https://c0.wallpaperflare.com/preview/453/499/723/men-nature-and-landscapes-travel-adventure.jpg",
+  ];
+
   return (
     <Container>
-      <header style={{ paddingLeft: 0 }}>
-        <div
-          className='p-5 text-center bg-image'
-          style={{ backgroundImage: "url('https://mdbootstrap.com/img/new/slides/041.webp')", height: 500, marginBottom: 20 }}>
-          <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 400 }}>
-            <div className='d-flex justify-content-center align-items-center h-100'>
-              <div className='text-white'>
-                <h1 className='mb-3'>This is Open Mate-r</h1>
-                <h4 className='mb-3'>You can post Travel Blogs</h4>
-                <Link className='btn btn-outline-light btn-lg' to={`/blogs`} role='button'> Open Mate-r</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Carousel activeIndex={index} onSelect={handleSelect}>
+        <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
+          <img className="d-block w-100" src={imgs[0]} alt="First slide" />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
+          <img className="d-block w-100" src={imgs[1]} alt="Second slide" />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item style={{ height: 500, marginBottom: 10 }}>
+          <img className="d-block w-100" src={imgs[2]} alt="Third slide" />
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <CardGroup>
-        <Card style={{margin: 10, border: 0}}>
-          <Card.Img variant="top" src="holder.js/100px160" />
+        <Card style={{ margin: 10, border: 0 }}>
+          <div style={{ height: 200 }}>
+            <Card.Img
+              variant="top"
+              src={image1}
+              style={{ objectFit: "cover", height: "100%" }}
+            />
+          </div>
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in
-              to additional content. This content is a little bit longer.
+              <Link to="/blogs">TRAVEL BLOG</Link>
             </Card.Text>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
-        <Card style={{margin: 10, border: 0}}>
-          <Card.Img variant="top" src="holder.js/100px160" />
+        <Card style={{ margin: 10, border: 0 }}>
+          <div style={{ height: 200 }}>
+            <Card.Img
+              variant="top"
+              src={image2}
+              style={{ objectFit: "cover", height: "100%" }}
+            />
+          </div>
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This card has supporting text below as a natural lead-in to
-              additional content.{' '}
-            </Card.Text>
+            <Card.Text>TRAVEL TIPS</Card.Text>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
-        <Card style={{margin: 10, border: 0}}>
-          <Card.Img variant="top" src="holder.js/100px160" />
+        <Card style={{ margin: 10, border: 0 }}>
+          <div style={{ height: 200 }}>
+            <Card.Img
+              variant="top"
+              src={image3}
+              style={{ objectFit: "cover", height: "100%" }}
+            />
+          </div>
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in
-              to additional content. This card has even longer content than the
-              first to show that equal height action.
-            </Card.Text>
+            <Link to="/Destination">DESIRED DESTINATION</Link>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
       </CardGroup>
+
       <Card>
-          <Card.Header>Quote</Card.Header>
-          <Card.Body>
-            <blockquote className="blockquote mb-0">
-              <p>
-                {' '}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                posuere erat a ante.{' '}
-              </p>
-              <footer className="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </Card.Body>
-        </Card>
+        <Card.Header>Quote</Card.Header>
+        <Card.Body>
+          <blockquote className="blockquote mb-0">
+            <p>
+              {" "}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+              posuere erat a ante.{" "}
+            </p>
+            <footer className="blockquote-footer">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </footer>
+          </blockquote>
+        </Card.Body>
+      </Card>
     </Container>
   );
 }
