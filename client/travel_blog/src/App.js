@@ -39,8 +39,9 @@ function App() {
       setAuthors(data.authors);
     }
 
-    getBlogs();
-  }, []);
+    getBlogs()
+  }, [])
+
 
   return (
     <div>
