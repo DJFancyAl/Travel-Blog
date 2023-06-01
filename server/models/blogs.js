@@ -5,7 +5,7 @@ const blogSchema = new mongoose.Schema({
     author: {type: String, default: 'Anonymous'},
     pic: {type: String}, 
     date: { type : Date, default: Date.now },
-    body: {type: String, required: true}
+    body: {type: String, required: true},
 });
 
 module.exports = mongoose.model('Blog', blogSchema)
