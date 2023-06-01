@@ -1,7 +1,6 @@
 // Dependencies
 const router = require('express').Router()
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
 const {createToken, validateToken} = require('../JWT')
 const { Author } = require('../models')
 
@@ -27,18 +26,24 @@ router.get('/:id', async (req, res) => {
 
 // Create Author
 router.post('/', async (req, res) => {
-    const {username, password} = req.body
+    const {username, password, confirmPassword} = req.body
 
     // Check if username and password is provided
     if (!username || !password) {
-        return res.status(400).json({message: "Username or Password not present"})
+        return res.status(400).json({error: "Username or Password not present"})
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        return res.status(400).json({error: "Passwords do not match!"})
     }
     
     // Check Password Length
     if (password.length < 6) {
-        return res.status(400).json({ message: "Password less than 6 characters" })
+        return res.status(400).json({error: "Password less than 6 characters" })
     }
 
+    // Create Author
     try {
         const createdAuthor = await Author.create({username, password})
         const id = createdAuthor._id.valueOf()    
@@ -68,12 +73,12 @@ router.post('/login', async (req, res) => {
         const author = await Author.findOne({username})
 
         // Check if author exists
-        if (!author) res.status(401).json({auth: false, error: "Login not succesful - Author not found."})
+        if (!author) res.status(401).json({error: "Login not succesful - Author not found."})
 
         // Validate Password
         const validPassword = await bcrypt.compare(password, author.password)
         if (!validPassword) {
-            res.status(401).json({auth: false, error: "Login not successful - Invalid Password."})
+            res.status(401).json({error: "Login not successful - Invalid Password."})
         } else {
             const id = author._id.valueOf()    
             const token = createToken(id)
@@ -99,7 +104,8 @@ router.put('/:id', validateToken, async (req, res) => {
 })
 
 // Delete Author
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', validateToken, async (req, res) => {
+    console.log(req.params.id)
     try {
         const deletedAuthor = await Author.findByIdAndDelete(req.params.id)
         res.status(200).json({message: "Author Deleted!"})

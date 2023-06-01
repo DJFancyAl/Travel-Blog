@@ -5,10 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Alert from 'react-bootstrap/Alert';
+import Fade from 'react-bootstrap/Fade';
 
 function Register( { setAuthor }) {
     // State
     const [newAuthor, setNewAuthor] = useState({})
+    const [alert, setAlert] = useState({})
+    const [open, setOpen] = useState(false)
     const navigate = useNavigate()
 
     // Handle Change
@@ -23,20 +27,27 @@ function Register( { setAuthor }) {
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
-        if(newAuthor.password === newAuthor.confirmPassword) {
-            const response = await fetch('http://localhost:3001/authors', {
-            method: "post",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newAuthor)
-            })
-            const data = await response.json()
+
+        const response = await fetch('http://localhost:3001/authors', {
+        method: "post",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newAuthor)
+        })
+        const data = await response.json()
+        if(data.author) {
             localStorage.setItem("token", data.token)
             localStorage.setItem("author", data.author)
             setAuthor(data.author)
-            navigate(`/authors/profile`)
+            setAlert({variant: 'success', message: `${data.author.username} account created!`})
+            setOpen(true)
+            setTimeout(() => navigate(`/authors/profile`), 1500)
+        }
+        if(data.error) {
+            setAlert({variant: 'danger', message: data.error})
+            setOpen(true)
+            setTimeout(() => setOpen(false), 3000)
         }
     }
 
@@ -65,6 +76,11 @@ function Register( { setAuthor }) {
                             Submit
                         </Button>
                         </Form>
+                        <Fade in={open} className='mt-3'>
+                            <div>
+                                <Alert variant={alert.variant} onClose={() => setAlert({})}>{alert.message}</Alert>
+                            </div>
+                        </Fade>
                     </Col>
                 </Row>
         </Container>
