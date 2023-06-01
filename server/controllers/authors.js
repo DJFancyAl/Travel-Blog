@@ -40,11 +40,7 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        try{
-            const createdAuthor = await Author.create({username, password})
-        }  catch(err) {
-            console.log(err)
-        }
+        const createdAuthor = await Author.create({username, password})
         const id = createdAuthor._id.valueOf()    
         const token = createToken(id)
         res.status(200).json({token: token, author: {

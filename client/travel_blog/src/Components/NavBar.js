@@ -22,7 +22,7 @@ function NavBar({ author, setAuthor }) {
     setAuthor({});
     localStorage.clear();
     navigate("/");
-  };
+  }
 
   return (
     <Navbar bg="dark" variant="dark">

@@ -16,12 +16,13 @@ router.get('/', async (req, res) => {
 
 // Blog View
 router.get('/:id', async (req, res) => {
+    console.log('hit')
     try{
         const foundBlog = await Blog.findById(req.params.id)
         res.status(200).json(foundBlog)
     } catch (err) {
         res.status(400).json({error: err})
-     }
+    }
 })
 
 // Create Blog

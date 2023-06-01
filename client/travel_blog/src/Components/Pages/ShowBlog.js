@@ -9,6 +9,7 @@ function ShowBlog() {
   const {id} = useParams()
   const [blog, setBlog] = useState({})
 
+  // Fetch Blog
   useEffect(() => {
     async function getBlog() {
       const response = await fetch(`http://localhost:3001/blogs/${id}`)
