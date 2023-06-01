@@ -39,7 +39,7 @@ function App() {
     }
 
     getBlogs()
-  }, [blogs, authors])
+  }, [])
 
 
   return (
