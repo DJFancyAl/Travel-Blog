@@ -40,7 +40,7 @@ function NewBlog({ author }) {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="title">
           <Form.Label>Blog Title</Form.Label>
-          <Form.Control type="text" placeholder="Your title..." onChange={handleChange} />
+          <Form.Control type="text" placeholder="Your title..." onChange={handleChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="pic">
@@ -50,7 +50,7 @@ function NewBlog({ author }) {
 
         <Form.Group className="mb-3" controlId="body">
           <Form.Label>Post Body</Form.Label>
-          <Form.Control as="textarea" rows={5} placeholder='Write your blog...' onChange={handleChange} />
+          <Form.Control as="textarea" rows={5} placeholder='Write your blog...' onChange={handleChange} required />
         </Form.Group>
 
         <Button variant="primary" type="submit">

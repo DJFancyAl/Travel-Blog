@@ -92,7 +92,7 @@ router.post('/login', async (req, res) => {
 router.put('/:id', validateToken, async (req, res) => {
     try {
         const updatedAuthor = await Author.findByIdAndUpdate(req.params.id, req.body)
-        res.status(200).json({message: "Updated Author"})
+        res.status(200).json({message: "SUCCESS! Your profile has been updated."})
     } catch (err) {
         res.status(400).json({error: err})
     }
