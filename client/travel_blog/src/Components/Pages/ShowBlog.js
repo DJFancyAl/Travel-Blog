@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
+import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 
 function ShowBlog( { author } ) {
@@ -19,7 +20,10 @@ function ShowBlog( { author } ) {
     }
 
     getBlog()
+    console.log(blog)
   }, [])
+
+  // Comments
 
   return (
     <Container>
@@ -28,6 +32,11 @@ function ShowBlog( { author } ) {
       {blog.pic && <img src={blog.pic} alt={blog.title} />}
       <p>{blog.body}</p>
       {blog.author && blog.author._id == author && <Link to={`/blog/edit/${blog._id}`}><Button>Edit Blog</Button></Link>}
+      <hr />
+      <h2 className="display-5 text-center">Comments</h2>
+      {/* <Accordion alwaysOpen> */}
+        {/* {comments} */}
+      {/* </Accordion> */}
     </Container>
   )
 }
