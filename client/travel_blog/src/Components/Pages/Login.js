@@ -35,7 +35,7 @@ function Login( { setAuthor }) {
             localStorage.setItem("author", rest)
             setAlert({variant: 'success', message: `${data.author.username} is signing in!`})
             setOpen(true)
-            setTimeout(() => navigate('/'), 1500)
+            setTimeout(() => navigate('/'), 800)
         }
         if(data.error){
             setAlert({variant: 'danger', message: data.error})

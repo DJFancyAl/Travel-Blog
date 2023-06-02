@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 // Controllers
 app.use('/blogs', require('./controllers/blogs'))
 app.use('/authors', require('./controllers/authors'))
-// app.use('/comments', require('./controllers/comments'))
+app.use('/comments', require('./controllers/comments'))
 
 // Home Route
 app.get('/', (req, res) => {
