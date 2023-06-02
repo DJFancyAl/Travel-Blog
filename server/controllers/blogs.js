@@ -1,7 +1,7 @@
 // Dependencies
 require('dotenv').config()
 const router = require('express').Router()
-const {Blog, Author} = require('../models')
+const {Blog, Author, Comment} = require('../models')
 
 // Get All Blogs
 router.get('/', async (req, res) => {
@@ -15,11 +15,16 @@ router.get('/', async (req, res) => {
     }
 })
 
-// Blog View
+// Blog View with comments
 router.get('/:id', async (req, res) => {
     try{
         const foundBlog = await Blog.findById(req.params.id)
         .populate('author')
+        .populate('comments')
+        .populate({
+            path: 'comments',
+            populate: { path: 'author', select: ['name', 'pic']}
+        })
         res.status(200).json(foundBlog)
     } catch (err) {
         res.status(400).json({error: err})

@@ -21,12 +21,6 @@ function App() {
 
   // Update author in localstorage
   useEffect(() => {
-    const storedAuthor = localStorage.getItem("author");
-    console.log(storedAuthor);
-  }, []);
-
-  // Update author in localstorage
-  useEffect(() => {
     localStorage.setItem("author", author);
   }, [author]);
 
