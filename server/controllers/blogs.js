@@ -1,7 +1,7 @@
 // Dependencies
 require('dotenv').config()
 const router = require('express').Router()
-const {Blog, Author} = require('../models')
+const {Blog, Author, Comment} = require('../models')
 
 // Get All Blogs
 router.get('/', async (req, res) => {
@@ -15,16 +15,32 @@ router.get('/', async (req, res) => {
     }
 })
 
-// Blog View
+// Blog View with comments
 router.get('/:id', async (req, res) => {
     try{
-        const foundBlog = await Blog.findById(req.params.id)
-        .populate('author')
+        const foundBlog = await Blog.findById(req.params.id).populate('comments')
         res.status(200).json(foundBlog)
     } catch (err) {
         res.status(400).json({error: err})
     }
 })
+
+// router.post('/:id/comments', async (req,res) => {
+//     try{
+//         const {body, author} = req.body
+
+//         const createComment = Comment.create({body, author, blog: req.params.id})
+//         console.log(createComment)
+//         await createComment.save()
+//         console.log(createComment)
+//         Blog.findById(req.params.id).comments.push(createComment._id)
+        
+//         await Blog.findById(req.params.id).save()
+//         res.status(200).json(createComment)
+//     } catch(err){
+//         res.status(500).json(err)
+//     }
+// })
 
 // Create Blog
 router.post('/', async (req, res) => {
