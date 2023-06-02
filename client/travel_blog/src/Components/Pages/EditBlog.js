@@ -23,7 +23,7 @@ function EditBlog() {
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = fetch(`http://localhost:3001/blogs/${id}`, {
+        const response = await fetch(`http://localhost:3001/blogs/${id}`, {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
