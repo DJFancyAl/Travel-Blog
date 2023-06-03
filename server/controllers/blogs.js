@@ -6,7 +6,7 @@ const {Blog, Author, Comment} = require('../models')
 // Get All Blogs
 router.get('/', async (req, res) => {
     try {
-        const foundBlogs = await Blog.find()
+        const foundBlogs = await Blog.find().sort({ date: 'desc'})
         .populate('author')
         const foundAuthors = await Author.find()
         res.status(200).json({blogs: foundBlogs, authors: foundAuthors})
