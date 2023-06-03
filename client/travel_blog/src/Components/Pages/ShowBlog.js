@@ -25,12 +25,7 @@ function ShowBlog( { author, deleteBlog } ) {
 
     getBlog()
   }, [id])
-
-  // Comments
-  const comments = blog.comments.map(comment => {
-    return <Comment key={comment._id} comment={comment} currentAuthor={author} />
-  })
-
+  
   // Add Comment
   const addComment = (comment) => {
     setBlog({
@@ -38,12 +33,25 @@ function ShowBlog( { author, deleteBlog } ) {
       comments: [...blog.comments, comment]
     })
   }
-
+  
+  // Delete Comment
+  const deleteComment = (commentId) => {
+    setBlog({
+      ...blog,
+    comments: blog.comments.filter(comment => comment._id !== commentId)
+    })
+  }
+  
   // Delete Blog
   const handleDelete = async () => {
     await deleteBlog(blog._id)
     navigate('/blogs')
   }
+  
+  // Comments
+  const comments = blog.comments.map(comment => {
+    return <Comment key={comment._id} comment={comment} currentAuthor={author} deleteComment={deleteComment} />
+  })
 
   return (
     <Container className='mb-5'>
