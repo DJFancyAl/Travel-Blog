@@ -16,7 +16,7 @@ function Authors( { authors }) {
                     <Card.Body>
                     <Card.Title>{author.name}</Card.Title>
                     <Card.Text>{author.bio}</Card.Text>
-                    <Link to={`/blogs/${author._id}`}><Button>View Blogs</Button></Link>
+                    <Link to={`/author/${author._id}`}><Button>View Blogs</Button></Link>
                     </Card.Body>
                 </Card>
             </Col>

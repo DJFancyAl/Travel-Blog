@@ -7,6 +7,7 @@ import NewBlog from "./Components/Pages/NewBlog";
 import ShowBlog from "./Components/Pages/ShowBlog";
 import EditBlog from "./Components/Pages/EditBlog";
 import Authors from "./Components/Pages/Authors";
+import ShowAuthor from "./Components/Pages/ShowAuthor";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
@@ -78,6 +79,7 @@ function App() {
             <Route path="/blog/:id" element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />} />
             <Route path="/blog/edit/:id" element={<EditBlog />} />
             <Route path="/authors" element={<Authors authors={authors} />} />
+            <Route path="/author/:id" element={<ShowAuthor />} />
             <Route
               path="/authors/register"
               element={<Register setAuthor={setAuthor} />}
