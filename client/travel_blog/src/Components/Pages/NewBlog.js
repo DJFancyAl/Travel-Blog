@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { MdNoteAdd } from "react-icons/md";
 
 function NewBlog({ author, addBlog }) {
   // State
@@ -47,7 +48,7 @@ function NewBlog({ author, addBlog }) {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Submit
+          Add Blog <MdNoteAdd className='mb-1' size={20} />
         </Button>
       </Form>
     </Container>

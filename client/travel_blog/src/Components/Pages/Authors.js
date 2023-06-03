@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { MdPerson } from "react-icons/md";
 
 function Authors( { authors }) {
 
@@ -12,11 +13,11 @@ function Authors( { authors }) {
         return (
             <Col key={author._id} xs={12} lg={4}>
                 <Card>
-                    <Card.Img variant="top" src={author.pic} />
+                    {author.pic && <Card.Img variant="top" src={author.pic} />}
                     <Card.Body>
                     <Card.Title>{author.name}</Card.Title>
                     <Card.Text>{author.bio}</Card.Text>
-                    <Link to={`/author/${author._id}`}><Button>View Blogs</Button></Link>
+                    <Link to={`/author/${author._id}`}><Button>View Author <MdPerson className='mb-1' size={20} /></Button></Link>
                     </Card.Body>
                 </Card>
             </Col>

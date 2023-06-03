@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
+import { MdPlayArrow } from "react-icons/md";
 
 function Register( { setAuthor }) {
     // State
@@ -73,7 +74,7 @@ function Register( { setAuthor }) {
                         </Form.Group>
 
                         <Button variant="primary" type="submit">
-                            Submit
+                            Register <MdPlayArrow className='mb-1' size={16} />
                         </Button>
                         </Form>
                         <Fade in={open} className='mt-3'>
