@@ -28,7 +28,7 @@ function ShowBlog( { author, deleteBlog } ) {
 
   // Comments
   const comments = blog.comments.map(comment => {
-    return <Comment key={comment._id} comment={comment} />
+    return <Comment key={comment._id} comment={comment} currentAuthor={author} />
   })
 
   // Add Comment

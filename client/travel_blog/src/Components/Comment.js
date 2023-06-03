@@ -2,7 +2,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
-function Comment( { comment } ) {
+function Comment( { comment, currentAuthor } ) {
     const {title, body, date, author} = comment
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
         month: 'long',
@@ -16,6 +16,7 @@ function Comment( { comment } ) {
                 <Col className='d-flex flex-row align-items-center'>
                     {author.pic && <Image src={author.pic} roundedCircle height='40' />}
                     <div className='mx-3'>{author.name} - {formattedDate}</div>
+                    
                 </Col>
             </Row>
             <Row className='bg-secondary text-white m-0 p-3'>
