@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 
 function YourComponent() {
   const style = {
@@ -48,17 +49,17 @@ function NavBar({ author, setAuthor }) {
         {author._id ? (
           <div className="d-flex align-items-center">
             <Button className="mx-3" as={Link} to="./authors/profile">
-              Hello {author.username}!
+              Hello {author.username}! <MdPerson2 className="mb-1" size={18} />
             </Button>
-            <Button onClick={logout}>Logout</Button>
+            <Button onClick={logout}>Logout <MdLogout className="mb-1" size={18} /></Button>
           </div>
         ) : (
           <div className="d-flex align-items-center">
             <Button className="mx-3" as={Link} to="./authors/register">
-              Register
+              Register <MdPersonAddAlt1 className="mb-1" size={18} />
             </Button>
             <Button as={Link} to="./authors/login">
-              Login
+              Login <MdLogin size={20} />
             </Button>
           </div>
         )}

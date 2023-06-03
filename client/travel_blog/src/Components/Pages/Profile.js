@@ -8,6 +8,7 @@ import Fade from 'react-bootstrap/Fade';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { MdDelete, MdEditNote } from "react-icons/md";
 
 function Profile( { author, setAuthor} ) {
     const navigate = useNavigate()
@@ -100,8 +101,8 @@ function Profile( { author, setAuthor} ) {
                         <Form.Control as="textarea" rows={5} placeholder='Tell us about you...' onChange={handleChange} value={changes.bio} />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">Edit Profile</Button>
-                        <Button variant="danger" className='mx-3' onClick={() => setShowModal(true)}>Delete Profile</Button>
+                        <Button variant="primary" type="submit">Edit Profile <MdEditNote className='mb-1' size={20} /></Button>
+                        <Button variant="danger" className='mx-3' onClick={() => setShowModal(true)}>Delete Profile <MdDelete className='mb-1' size={20} /></Button>
                     </Form>
                     <Fade in={open} className='mt-3'>
                         <div>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { MdNoteAdd } from "react-icons/md";
 
 function NewComment( {author, blog, addComment} ) {
     // State
@@ -51,7 +52,7 @@ function NewComment( {author, blog, addComment} ) {
                     <Form.Control as="textarea" placeholder="Write your comment..." rows={3} value={comment.body} onChange={handleChange} />
                 </Form.Group>
                 <Button variant="primary" type="submit">
-                    Create Comment
+                    Create Comment <MdNoteAdd className='mb-1' size={20} />
                 </Button>
             </Form>
         </Col>

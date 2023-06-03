@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Comment from '../Comment';
 import NewComment from '../NewComment';
+import { MdDelete, MdEditNote } from "react-icons/md";
 
 function ShowBlog( { author, deleteBlog } ) {
   // States
@@ -62,9 +63,9 @@ function ShowBlog( { author, deleteBlog } ) {
       {blog.author && blog.author._id === author && 
         <>
           <Link to={`/blog/edit/${blog._id}`}>
-            <Button>Edit Blog</Button>
+            <Button>Edit Blog <MdEditNote className='mb-1' size={20} /></Button>
           </Link>
-          <Button className='mx-3' variant="danger" onClick={handleDelete}>Delete Blog</Button>
+          <Button className='mx-3' variant="danger" onClick={handleDelete}>Delete Blog <MdDelete className='mb-1' size={20} /></Button>
         </>}
       <hr />
       <Col xs={12} md={8} className="m-auto">
