@@ -2,7 +2,7 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt');
 const {createToken, validateToken} = require('../JWT')
-const { Author } = require('../models')
+const { Author, Blog } = require('../models')
 
 // Get All Authors
 router.get('/', async (req, res) => {
@@ -17,8 +17,11 @@ router.get('/', async (req, res) => {
 // Author View
 router.get('/:id', async (req, res) => {
     try{
-        const foundAuthor = await Author.findById(req.params.id)
-        res.status(200).json(foundAuthor)
+        const foundAuthor = await Author.findById(req.params.id).select("-password -username")
+        const foundBlogs = await Blog.find({author: foundAuthor._id})
+        result = foundAuthor.toObject()
+        result.blogs = foundBlogs
+        res.status(200).json(result)
     } catch (err) {
         res.status(400).json({error: err})
      }
