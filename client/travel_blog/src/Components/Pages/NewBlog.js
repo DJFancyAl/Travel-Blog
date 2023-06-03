@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function NewBlog({ author }) {
+function NewBlog({ author, addBlog }) {
   // State
   const navigate = useNavigate()
   const [newBlog, setNewBlog] = useState({
@@ -23,15 +23,8 @@ function NewBlog({ author }) {
   // Handle Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await fetch('http://localhost:3001/blogs', {
-      method: "post",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newBlog)
-    })
-    const data = await response.json()
-    navigate(`/blog/${data._id}`)
+    const newId = await addBlog(newBlog)
+    navigate(`/blog/${newId}`)
   }
 
   return (

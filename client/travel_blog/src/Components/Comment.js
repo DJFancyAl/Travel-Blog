@@ -13,8 +13,9 @@ function Comment( { comment } ) {
     return (
         <div>
             <Row className='bg-primary text-white m-0 p-3'>
-                <Col onClick={() => console.log(author.name)}>
-                    {author.name} - {formattedDate}
+                <Col className='d-flex flex-row align-items-center'>
+                    {author.pic && <Image src={author.pic} roundedCircle height='40' />}
+                    <div className='mx-3'>{author.name} - {formattedDate}</div>
                 </Col>
             </Row>
             <Row className='bg-secondary text-white m-0 p-3'>
