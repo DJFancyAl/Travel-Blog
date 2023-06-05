@@ -16,7 +16,7 @@ function ShowAuthor() {
     // Fetch Blog
     useEffect(() => {
         async function getShownAuthor() {
-        const response = await fetch(`http://localhost:3001/authors/${id}`)
+        const response = await fetch(`https://travel-blog-api.onrender.com/authors/${id}`)
         const data = await response.json();
         setShownAuthor(data)
         }

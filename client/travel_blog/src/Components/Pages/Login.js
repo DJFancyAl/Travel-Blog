@@ -21,7 +21,7 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch(`http://localhost:3001/authors/login`, {
+        const response = await fetch(`https://travel-blog-api.onrender.com/authors/login`, {
         method: "post",
         headers: {
             'Content-Type': 'application/json',

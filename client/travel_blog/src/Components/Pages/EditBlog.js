@@ -23,7 +23,7 @@ function EditBlog() {
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://localhost:3001/blogs/${id}`, {
+        const response = await fetch(`https://travel-blog-api.onrender.com/blogs/${id}`, {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ function EditBlog() {
     // Fetch Blog
     useEffect(() => {
         async function getBlog() {
-        const response = await fetch(`http://localhost:3001/blogs/${id}`)
+        const response = await fetch(`https://travel-blog-api.onrender.com/blogs/${id}`)
         const data = await response.json();
         setEditedBlog(data)
         }

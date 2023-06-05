@@ -30,7 +30,7 @@ function App() {
   // Fetches all blogs
   useEffect(() => {
     async function getBlogs() {
-      const response = await fetch("http://localhost:3001/blogs");
+      const response = await fetch("https://travel-blog-api.onrender.com/blogs");
       const data = await response.json();
       setBlogs(data.blogs);
       setAuthors(data.authors);
@@ -41,7 +41,7 @@ function App() {
 
   // Add Blog
   const addBlog = async (newBlog) => {
-    const response = await fetch('http://localhost:3001/blogs', {
+    const response = await fetch('https://travel-blog-api.onrender.com/blogs', {
       method: "post",
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function App() {
 
   // Delete Blog
   const deleteBlog = async (id) => {
-    const response = await fetch(`http://localhost:3001/blogs/${id}`, {
+    const response = await fetch(`https://travel-blog-api.onrender.com/blogs/${id}`, {
         method: "delete",
         headers: {
             'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/blogs" element={<Blogs blogs={blogs} />} />
               <Route path="/blog/new" element={<NewBlog addBlog={addBlog} />} />
-              <Route path="/blog/:id" element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />} />
+              <Route path="/blog/:id" element={<ShowBlog deleteBlog={deleteBlog} />} />
               <Route path="/blog/edit/:id" element={<EditBlog />} />
               <Route path="/authors" element={<Authors authors={authors} />} />
               <Route path="/author/:id" element={<ShowAuthor />} />

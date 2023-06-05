@@ -28,7 +28,7 @@ function NewComment( {blog, addComment} ) {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch(`http://localhost:3001/comments`, {
+        const response = await fetch(`https://travel-blog-api.onrender.com/comments`, {
         method: "post",
         headers: {
             'Content-Type': 'application/json',

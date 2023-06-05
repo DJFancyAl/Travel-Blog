@@ -31,7 +31,7 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://localhost:3001/authors', {
+        const response = await fetch('https://travel-blog-api.onrender.com/authors', {
         method: "post",
         headers: {
             'Content-Type': 'application/json'
