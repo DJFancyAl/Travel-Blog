@@ -1,12 +1,3 @@
-.read {
-    width: 120px;
-}
-
-.read:hover {
-    transition: 0.4s;
-    width: 180px;
-}
-
 .post {
     transition: 0.5s;
 }

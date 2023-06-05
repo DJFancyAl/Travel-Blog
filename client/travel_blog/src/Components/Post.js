@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import GrowButton from './GrowButton'
 import styles from '../CSS/Post.module.css'
 
 function Post({ blog }) {
@@ -31,7 +32,7 @@ function Post({ blog }) {
         <div className="w-100 d-flex flex-grow-1 p-4 row align-items-center">
           <p className="m-0">{blog.body.substring(0, 400)}...</p>
           <div className="w-100 d-flex justify-content-end">
-            <Link to={`/blog/${blog._id}`}><Button className={styles.read}>Read Blog</Button></Link>
+            <Link to={`/blog/${blog._id}`}><GrowButton variant='primary' start='150px' end='220px'>Read Blog</GrowButton></Link>
           </div>
         </div>
       </Col>

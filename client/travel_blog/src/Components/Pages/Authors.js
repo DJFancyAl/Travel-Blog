@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { MdPerson } from "react-icons/md";
+import GrowButton from '../GrowButton'
 import styles from '../../CSS/Authors.module.css'
 
 function Authors( { authors }) {
@@ -18,7 +18,7 @@ function Authors( { authors }) {
                     <Card.Body className='d-flex flex-column align-items-start'>
                         <Card.Title>{author.name}</Card.Title>
                         <Card.Text className='flex-fill'>{author.bio}</Card.Text>
-                        <Link to={`/author/${author._id}`}><Button className={styles.btn}>View Author <MdPerson className='mb-1' size={20} /></Button></Link>
+                        <Link to={`/author/${author._id}`}><GrowButton variant='primary' start='150px' end='220px'>View Author <MdPerson className='mb-1' size={20} /></GrowButton></Link>
                     </Card.Body>
                 </Card>
             </Col>

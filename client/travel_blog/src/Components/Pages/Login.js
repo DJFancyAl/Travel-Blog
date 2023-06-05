@@ -8,7 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdLockOpen} from "react-icons/md";
-import styles from '../../CSS/Button.module.css'
+import GrowButton from "../GrowButton";
 
 function Login( { setAuthor }) {
     // State
@@ -63,9 +63,9 @@ function Login( { setAuthor }) {
                         <Form.Control type="password" placeholder="Your Password" required />
                     </Form.Group>
 
-                    <Button className={styles.btn} variant="primary" type="submit">
-                        Login <MdLockOpen  size={20} />
-                    </Button>
+                    <GrowButton variant='primary' type='submit' start='110px' end='200px'>
+                    Login <MdLockOpen  size={20} />
+                    </GrowButton>
                     </Form>
                     <Fade in={open} className='mt-3'>
                         <div>

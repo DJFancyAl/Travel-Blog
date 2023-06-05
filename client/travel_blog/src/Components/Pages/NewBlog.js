@@ -2,10 +2,9 @@ import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { MdNoteAdd } from "react-icons/md";
-import styles from '../../CSS/Button.module.css'
+import GrowButton from '../GrowButton'
 
 function NewBlog({ author, addBlog }) {
   // State
@@ -50,9 +49,9 @@ function NewBlog({ author, addBlog }) {
             <Form.Control as="textarea" rows={5} placeholder='Write your blog...' onChange={handleChange} required />
           </Form.Group>
 
-          <Button className={styles.btn} variant="primary" type="submit">
+          <GrowButton variant='primary' type='submit' start='120px'>
             Add Blog <MdNoteAdd className='mb-1' size={20} />
-          </Button>
+          </GrowButton>
         </Form>
       </Col>
     </Container>

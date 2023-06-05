@@ -131,7 +131,7 @@ function Profile( { author, setAuthor} ) {
                 This is your last chance! This will delete your profile and all associated information.
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={() => setShowModal(false)}>
+                <Button variant="primary" onClick={() => setShowModal(false)}>
                     Close
                 </Button>
                 <Button variant="danger" onClick={deleteProfile}>Delete Forever</Button>

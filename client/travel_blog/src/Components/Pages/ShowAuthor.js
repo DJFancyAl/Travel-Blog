@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom'
@@ -13,7 +12,6 @@ function ShowAuthor() {
     // States
     const {id} = useParams()
     const [shownAuthor, setShownAuthor] = useState({comments: [], blogs: []})
-    const navigate = useNavigate()
 
     // Fetch Blog
     useEffect(() => {
@@ -29,7 +27,7 @@ function ShowAuthor() {
     // Create the blog list
     const blogList = shownAuthor.blogs.map(blog => {
         const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
-        return <Link className='text-decoration-none' to={`/blog/${blog._id}`}><ListGroup.Item className={styles.blog + ' border border-light fw-bold lead py-4'}>{blog.title} - {formattedDate}</ListGroup.Item></Link>
+        return <Link className='text-decoration-none' to={`/blog/${blog._id}`}><ListGroup.Item className={styles.listItem + ' border border-dark lead py-4'}>{blog.title} - {formattedDate}</ListGroup.Item></Link>
     })
 
   return (

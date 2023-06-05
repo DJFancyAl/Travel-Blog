@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdPlayArrow } from "react-icons/md";
-import styles from '../../CSS/Button.module.css'
+import GrowButton from '../GrowButton'
 
 function Register( { setAuthor }) {
     // State
@@ -74,9 +73,10 @@ function Register( { setAuthor }) {
                             <Form.Control type="password" placeholder="Confirm password" onChange={handleChange} />
                         </Form.Group>
 
-                        <Button className={styles.btn} variant="primary" type="submit">
+                        <GrowButton variant='primary' type='submit' start='110px' end='200px'>
                             Register <MdPlayArrow className='mb-1' size={16} />
-                        </Button>
+                        </GrowButton>
+
                         </Form>
                         <Fade in={open} className='mt-3'>
                             <div>
