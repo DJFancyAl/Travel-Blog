@@ -95,7 +95,7 @@ function Home() {
             />
           </div>
           <Card.Body>
-            <Link to="/Destination">DESIRED DESTINATION</Link>
+            <Link to="/Destination">DESIRED DESTINATIONS</Link>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>

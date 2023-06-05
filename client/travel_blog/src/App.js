@@ -11,7 +11,7 @@ import ShowAuthor from "./Components/Pages/ShowAuthor";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
-import Destination from "./Components/Pages/Destination";
+import Destination from "./Components/Pages/destination";
 import ResponsiveAppBar from "./Components/NavBar";
 
 function App() {
@@ -34,38 +34,37 @@ function App() {
       setAuthors(data.authors);
     }
 
-    getBlogs()
-  }, [])
+    getBlogs();
+  }, []);
 
   // Add Blog
   const addBlog = async (newBlog) => {
-    const response = await fetch('http://localhost:3001/blogs', {
+    const response = await fetch("http://localhost:3001/blogs", {
       method: "post",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newBlog)
-    })
-    const data = await response.json()
-    setBlogs([data, ...blogs])
-    return data._id
-  }
+      body: JSON.stringify(newBlog),
+    });
+    const data = await response.json();
+    setBlogs([data, ...blogs]);
+    return data._id;
+  };
 
   // Delete Blog
   const deleteBlog = async (id) => {
     const response = await fetch(`http://localhost:3001/blogs/${id}`, {
-        method: "delete",
-        headers: {
-            'Content-Type': 'application/json',
-            "x-access-token": localStorage.getItem('token')
-        }})
-    const data = await response.json()
-    if(data.message) {
-      setBlogs(
-        blogs.filter(blog => blog._id !== id)
-      )
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
+      },
+    });
+    const data = await response.json();
+    if (data.message) {
+      setBlogs(blogs.filter((blog) => blog._id !== id));
     }
-  }
+  };
 
   return (
     <div>
@@ -75,8 +74,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-            <Route path="/blog/new" element={<NewBlog author={author._id} addBlog={addBlog} />} />
-            <Route path="/blog/:id" element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />} />
+            <Route
+              path="/blog/new"
+              element={<NewBlog author={author._id} addBlog={addBlog} />}
+            />
+            <Route
+              path="/blog/:id"
+              element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />}
+            />
             <Route path="/blog/edit/:id" element={<EditBlog />} />
             <Route path="/authors" element={<Authors authors={authors} />} />
             <Route path="/author/:id" element={<ShowAuthor />} />
