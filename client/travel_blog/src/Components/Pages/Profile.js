@@ -40,10 +40,9 @@ function Profile( { author, setAuthor} ) {
         })
         const data = await response.json()
         if(data.message){
-            setAuthor({
-                ...author,
-                ...changes
-            })
+            const updatedAuthor = {...author, ...changes}
+            setAuthor(updatedAuthor)
+            localStorage.setItem("author", JSON.stringify(updatedAuthor))
             setAlert({variant: 'success', message: data.message})
         }
         if(data.error){

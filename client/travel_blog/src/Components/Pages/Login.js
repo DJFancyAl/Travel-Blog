@@ -35,7 +35,7 @@ function Login( { setAuthor }) {
             const {password, ...rest} = data.author
             setAuthor(rest)
             localStorage.setItem("token", data.token)
-            localStorage.setItem("author", rest)
+            localStorage.setItem("author", JSON.stringify(rest))
             setAlert({variant: 'success', message: `${data.author.username} is signing in!`})
             setOpen(true)
             setTimeout(() => navigate('/'), 800)

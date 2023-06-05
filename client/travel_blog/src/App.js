@@ -20,11 +20,12 @@ function App() {
   const [blogs, setBlogs] = useState([]);
   const [authors, setAuthors] = useState([]);
 
-  // Update author in localstorage
+  // Get Author
   useEffect(() => {
-    localStorage.setItem("author", author);
-  }, [author]);
-
+    const storedAuthor = JSON.parse(localStorage.getItem('author'))
+    if(storedAuthor !== null) setAuthor(storedAuthor)
+  },[])
+  
   // Fetches all blogs
   useEffect(() => {
     async function getBlogs() {
@@ -69,7 +70,7 @@ function App() {
   }
 
   return (
-    <div className="bg-secondary-emphasis">
+    <div onClick={() => console.log(author.username)} className="bg-secondary-emphasis">
       <Router>
         <ResponsiveAppBar author={author} setAuthor={setAuthor} />
         <div className="mt-3">
