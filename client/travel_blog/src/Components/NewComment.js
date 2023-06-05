@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthorContext } from '../Context/AuthorContext';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { MdNoteAdd } from "react-icons/md";
+import GrowButton from './GrowButton'
 
-function NewComment( {author, blog, addComment} ) {
+function NewComment( {blog, addComment} ) {
     // State
+    const { author } = useContext(AuthorContext)
     const [comment, setComment] = useState({
-        author: author,
+        author: author._id,
         blog: blog,
         title: '',
         body: ''
@@ -30,12 +32,13 @@ function NewComment( {author, blog, addComment} ) {
         method: "post",
         headers: {
             'Content-Type': 'application/json',
+            "x-access-token": localStorage.getItem('token')
         },
         body: JSON.stringify(comment)
         })
         const data = await response.json()
         addComment(data)
-        setComment({author: author, blog: blog, title: '', body: ''})
+        setComment({author: author._id, blog: blog, title: '', body: ''})
     }
 
     return (
@@ -51,9 +54,9 @@ function NewComment( {author, blog, addComment} ) {
                     <Form.Label>Comment</Form.Label>
                     <Form.Control as="textarea" placeholder="Write your comment..." rows={3} value={comment.body} onChange={handleChange} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <GrowButton variant="primary" type="submit" start='180px' end='250px'>
                     Create Comment <MdNoteAdd className='mb-1' size={20} />
-                </Button>
+                </GrowButton>
             </Form>
         </Col>
     )

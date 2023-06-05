@@ -12,7 +12,7 @@ function Blogs( { blogs } ) {
 
   return (
     <Container>
-        <h1>View All Blogs</h1>
+        <h1 className='display-5 mb-4'>View All Blogs</h1>
         {blogList}
     </Container>
   )

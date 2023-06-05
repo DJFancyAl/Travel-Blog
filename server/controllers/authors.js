@@ -108,7 +108,6 @@ router.put('/:id', validateToken, async (req, res) => {
 
 // Delete Author
 router.delete('/:id', validateToken, async (req, res) => {
-    console.log(req.params.id)
     try {
         const deletedAuthor = await Author.findByIdAndDelete(req.params.id)
         res.status(200).json({message: "Author Deleted!"})

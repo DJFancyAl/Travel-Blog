@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthorContext } from "../../Context/AuthorContext";
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdLockOpen} from "react-icons/md";
+import GrowButton from "../GrowButton";
 
-function Login( { setAuthor }) {
+function Login() {
     // State
     const navigate = useNavigate()
+    const { setAuthor } = useContext(AuthorContext)
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)
 
@@ -34,7 +36,7 @@ function Login( { setAuthor }) {
             const {password, ...rest} = data.author
             setAuthor(rest)
             localStorage.setItem("token", data.token)
-            localStorage.setItem("author", rest)
+            localStorage.setItem("author", JSON.stringify(rest))
             setAlert({variant: 'success', message: `${data.author.username} is signing in!`})
             setOpen(true)
             setTimeout(() => navigate('/'), 800)
@@ -48,9 +50,9 @@ function Login( { setAuthor }) {
 
     return (
         <Container>
-            <h1>Login:</h1>
             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
+                    <h1 className="mb-5 display-5">Login:</h1>
                     <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="username">
                         <Form.Label>Username</Form.Label>
@@ -62,9 +64,9 @@ function Login( { setAuthor }) {
                         <Form.Control type="password" placeholder="Your Password" required />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
-                        Login <MdLockOpen  size={20} />
-                    </Button>
+                    <GrowButton variant='primary' type='submit' start='110px' end='200px'>
+                    Login <MdLockOpen  size={20} />
+                    </GrowButton>
                     </Form>
                     <Fade in={open} className='mt-3'>
                         <div>

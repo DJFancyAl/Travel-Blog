@@ -1,3 +1,6 @@
+import { useState, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+import { AuthorContext } from '../../Context/AuthorContext';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -6,12 +9,12 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import Image from 'react-bootstrap/Image';
 import { MdDelete, MdEditNote } from "react-icons/md";
 
-function Profile( { author, setAuthor} ) {
+function Profile() {
     const navigate = useNavigate()
+    const { author, setAuthor} = useContext(AuthorContext)
     const [changes, setChanges] = useState({...author})
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)
@@ -39,10 +42,9 @@ function Profile( { author, setAuthor} ) {
         })
         const data = await response.json()
         if(data.message){
-            setAuthor({
-                ...author,
-                ...changes
-            })
+            const updatedAuthor = {...author, ...changes}
+            setAuthor(updatedAuthor)
+            localStorage.setItem("author", JSON.stringify(updatedAuthor))
             setAlert({variant: 'success', message: data.message})
         }
         if(data.error){
@@ -111,8 +113,8 @@ function Profile( { author, setAuthor} ) {
                     </Fade>
                 </Col>
                 {author.pic &&
-                <Col>
-                    <img src={author.pic} alt={author.username} />
+                <Col className='d-flex align-items-center'>
+                    <Image className='shadow m-auto' src={author.pic} alt={author.username} />
                 </Col>
                 }
             </Row>
@@ -130,7 +132,7 @@ function Profile( { author, setAuthor} ) {
                 This is your last chance! This will delete your profile and all associated information.
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={() => setShowModal(false)}>
+                <Button variant="primary" onClick={() => setShowModal(false)}>
                     Close
                 </Button>
                 <Button variant="danger" onClick={deleteProfile}>Delete Forever</Button>

@@ -1,19 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom';
+import { AuthorContext } from '../../Context/AuthorContext';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import Comment from '../Comment';
 import NewComment from '../NewComment';
 import { MdDelete, MdEditNote } from "react-icons/md";
 
-function ShowBlog( { author, deleteBlog } ) {
+function ShowBlog( { deleteBlog } ) {
   // States
   const {id} = useParams()
+  const { author } = useContext(AuthorContext)
   const [blog, setBlog] = useState({comments: []})
   const navigate = useNavigate()
+  const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric' })
 
   // Fetch Blog
   useEffect(() => {
@@ -51,16 +55,17 @@ function ShowBlog( { author, deleteBlog } ) {
   
   // Comments
   const comments = blog.comments.map(comment => {
-    return <Comment key={comment._id} comment={comment} currentAuthor={author} deleteComment={deleteComment} />
+    return <Comment key={comment._id} comment={comment} deleteComment={deleteComment} />
   })
 
   return (
     <Container className='mb-5'>
       <h1 onClick={() => console.log(blog)}>{blog.title}</h1>
+      <p className='fst-italic'>{formattedDate}</p>
       {blog.author && <p className="lead">Written By: {blog.author.name}</p>}
-      {blog.pic && <img src={blog.pic} alt={blog.title} />}
-      <div className='my-3' style={{whiteSpace: 'pre-wrap'}}>{blog.body}</div>
-      {blog.author && blog.author._id === author && 
+      <div className='my-3 overflow-auto' style={{whiteSpace: 'pre-wrap'}}>{blog.pic && <Image className='ms-3 shadow' style={{maxWidth: '50%'}} align='right' src={blog.pic} alt={blog.title} />}{blog.body}</div>
+      
+      {blog.author && blog.author._id === author._id && 
         <>
           <Link to={`/blog/edit/${blog._id}`}>
             <Button>Edit Blog <MdEditNote className='mb-1' size={20} /></Button>
@@ -68,10 +73,10 @@ function ShowBlog( { author, deleteBlog } ) {
           <Button className='mx-3' variant="danger" onClick={handleDelete}>Delete Blog <MdDelete className='mb-1' size={20} /></Button>
         </>}
       <hr />
-      <Col xs={12} md={8} className="m-auto">
+      <Col xs={12} lg={8} className="m-auto">
         <h2 className="display-5 text-center">Comments</h2>
         {blog.comments[0] && <div className='border border-3 border-primary-subtle'>{comments}</div>}
-        {author && <NewComment blog={id} author={author} addComment={addComment} />}
+        {author && <NewComment blog={id} addComment={addComment} />}
       </Col>
     </Container>
   )
