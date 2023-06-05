@@ -1,0 +1,8 @@
+.btn {
+    width: 180px;
+}
+
+.btn:hover {
+    transition: 0.4s;
+    width: 240px;
+}

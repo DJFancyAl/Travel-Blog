@@ -1,0 +1,10 @@
+.blog {
+    background-color: #2b5f57;
+    color: #fbfbfb;
+    text-decoration: none;
+}
+.blog:hover {
+    background-color: #3e7970;
+    transition: 0.4s;
+    transform: scale(1.03);
+}

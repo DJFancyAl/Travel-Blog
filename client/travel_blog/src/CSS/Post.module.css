@@ -1,0 +1,25 @@
+.read {
+    width: 120px;
+}
+
+.read:hover {
+    transition: 0.4s;
+    width: 180px;
+}
+
+.post {
+    transition: 0.5s;
+}
+
+.post:hover {
+    transform: scale(1.03);
+}
+
+.link {
+    color: inherit;
+    text-decoration:  inherit;
+}
+
+.link:hover {
+    color: #d3d3d3;
+}

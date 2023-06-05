@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 import Comment from '../Comment';
 import NewComment from '../NewComment';
 import { MdDelete, MdEditNote } from "react-icons/md";
@@ -14,6 +15,7 @@ function ShowBlog( { author, deleteBlog } ) {
   const {id} = useParams()
   const [blog, setBlog] = useState({comments: []})
   const navigate = useNavigate()
+  const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric' })
 
   // Fetch Blog
   useEffect(() => {
@@ -57,9 +59,10 @@ function ShowBlog( { author, deleteBlog } ) {
   return (
     <Container className='mb-5'>
       <h1 onClick={() => console.log(blog)}>{blog.title}</h1>
+      <p className='fst-italic'>{formattedDate}</p>
       {blog.author && <p className="lead">Written By: {blog.author.name}</p>}
-      {blog.pic && <img src={blog.pic} alt={blog.title} />}
-      <div className='my-3' style={{whiteSpace: 'pre-wrap'}}>{blog.body}</div>
+      <div className='my-3 overflow-auto' style={{whiteSpace: 'pre-wrap'}}>{blog.pic && <Image className='ms-3 shadow' style={{maxWidth: '50%'}} align='right' src={blog.pic} alt={blog.title} />}{blog.body}</div>
+      
       {blog.author && blog.author._id === author && 
         <>
           <Link to={`/blog/edit/${blog._id}`}>
@@ -68,7 +71,7 @@ function ShowBlog( { author, deleteBlog } ) {
           <Button className='mx-3' variant="danger" onClick={handleDelete}>Delete Blog <MdDelete className='mb-1' size={20} /></Button>
         </>}
       <hr />
-      <Col xs={12} md={8} className="m-auto">
+      <Col xs={12} lg={8} className="m-auto">
         <h2 className="display-5 text-center">Comments</h2>
         {blog.comments[0] && <div className='border border-3 border-primary-subtle'>{comments}</div>}
         {author && <NewComment blog={id} author={author} addComment={addComment} />}

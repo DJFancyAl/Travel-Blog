@@ -28,7 +28,7 @@ function Comment( { comment, deleteComment, currentAuthor } ) {
     }
 
     return (
-        <div>
+        <>
             <Row className='bg-primary text-white m-0 p-3'>
                 <Col className='d-flex flex-row align-items-center'>
                     {author.pic && <Image src={author.pic} roundedCircle height='40' />}
@@ -36,13 +36,13 @@ function Comment( { comment, deleteComment, currentAuthor } ) {
                     {currentAuthor === author._id && <Button className='ms-auto'><MdDelete size={30} onClick={removeComment} /></Button>}
                 </Col>
             </Row>
-            <Row className='bg-secondary text-white m-0 p-3'>
+            <Row className='bg-light m-0 p-3'>
                 <Col className='text-center p-3'>
                     <h5>{title}</h5>
                     <p>{body}</p>
                 </Col>
             </Row>
-        </div>
+        </>
     )
 }
 

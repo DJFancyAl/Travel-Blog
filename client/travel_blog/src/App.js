@@ -68,7 +68,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="bg-secondary-emphasis">
       <Router>
         <ResponsiveAppBar author={author} setAuthor={setAuthor} />
         <div className="mt-3">

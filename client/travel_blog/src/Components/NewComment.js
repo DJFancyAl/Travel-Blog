@@ -3,6 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { MdNoteAdd } from "react-icons/md";
+import styles from '../CSS/Comment.module.css'
 
 function NewComment( {author, blog, addComment} ) {
     // State
@@ -51,7 +52,7 @@ function NewComment( {author, blog, addComment} ) {
                     <Form.Label>Comment</Form.Label>
                     <Form.Control as="textarea" placeholder="Write your comment..." rows={3} value={comment.body} onChange={handleChange} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button className={styles.btn} width='160' variant="primary" type="submit">
                     Create Comment <MdNoteAdd className='mb-1' size={20} />
                 </Button>
             </Form>

@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdLockOpen} from "react-icons/md";
+import styles from '../../CSS/Button.module.css'
 
 function Login( { setAuthor }) {
     // State
@@ -48,9 +49,9 @@ function Login( { setAuthor }) {
 
     return (
         <Container>
-            <h1>Login:</h1>
             <Row className="justify-content-center">
                 <Col xs={12} md={6}>
+                    <h1 className="mb-5 display-5">Login:</h1>
                     <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="username">
                         <Form.Label>Username</Form.Label>
@@ -62,7 +63,7 @@ function Login( { setAuthor }) {
                         <Form.Control type="password" placeholder="Your Password" required />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button className={styles.btn} variant="primary" type="submit">
                         Login <MdLockOpen  size={20} />
                     </Button>
                     </Form>

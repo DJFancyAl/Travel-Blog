@@ -8,6 +8,7 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdPlayArrow } from "react-icons/md";
+import styles from '../../CSS/Button.module.css'
 
 function Register( { setAuthor }) {
     // State
@@ -54,9 +55,9 @@ function Register( { setAuthor }) {
 
     return (
         <Container>
-            <h1>Register New User:</h1>
                 <Row className="justify-content-center">
                     <Col xs={12} md={6}>
+                        <h1 className='mb-5 display-5'>Register:</h1>
                         <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="username">
                             <Form.Label>Username</Form.Label>
@@ -73,7 +74,7 @@ function Register( { setAuthor }) {
                             <Form.Control type="password" placeholder="Confirm password" onChange={handleChange} />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <Button className={styles.btn} variant="primary" type="submit">
                             Register <MdPlayArrow className='mb-1' size={16} />
                         </Button>
                         </Form>

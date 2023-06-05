@@ -1,0 +1,16 @@
+.author {
+    transition: 0.4s;
+}
+
+.author:hover {
+    transform: scale(1.03);
+}
+
+.btn {
+    width: 140px;
+}
+
+.btn:hover {
+    transition: 0.4s;
+    width: 200px;
+}

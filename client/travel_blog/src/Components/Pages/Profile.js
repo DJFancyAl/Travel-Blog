@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import Modal from 'react-bootstrap/Modal';
+import Image from 'react-bootstrap/Image';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { MdDelete, MdEditNote } from "react-icons/md";
@@ -111,8 +112,8 @@ function Profile( { author, setAuthor} ) {
                     </Fade>
                 </Col>
                 {author.pic &&
-                <Col>
-                    <img src={author.pic} alt={author.username} />
+                <Col className='d-flex align-items-center'>
+                    <Image className='shadow m-auto' src={author.pic} alt={author.username} />
                 </Col>
                 }
             </Row>
