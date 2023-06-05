@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthorContext } from '../Context/AuthorContext';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { MdNoteAdd } from "react-icons/md";
 import GrowButton from './GrowButton'
 
-function NewComment( {author, blog, addComment} ) {
+function NewComment( {blog, addComment} ) {
     // State
+    const { author } = useContext(AuthorContext)
     const [comment, setComment] = useState({
-        author: author,
+        author: author._id,
         blog: blog,
         title: '',
         body: ''
@@ -36,7 +38,7 @@ function NewComment( {author, blog, addComment} ) {
         })
         const data = await response.json()
         addComment(data)
-        setComment({author: author, blog: blog, title: '', body: ''})
+        setComment({author: author._id, blog: blog, title: '', body: ''})
     }
 
     return (

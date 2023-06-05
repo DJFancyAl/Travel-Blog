@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
+import { AuthorContext } from '../../Context/AuthorContext';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,11 +10,12 @@ import Fade from 'react-bootstrap/Fade';
 import { MdPlayArrow } from "react-icons/md";
 import GrowButton from '../GrowButton'
 
-function Register( { setAuthor }) {
+function Register() {
     // State
     const [newAuthor, setNewAuthor] = useState({})
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)
+    const {setAuthor} = useContext(AuthorContext)
     const navigate = useNavigate()
 
     // Handle Change

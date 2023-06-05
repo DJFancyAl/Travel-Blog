@@ -1,3 +1,6 @@
+import { useState, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+import { AuthorContext } from '../../Context/AuthorContext';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,12 +10,11 @@ import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import Modal from 'react-bootstrap/Modal';
 import Image from 'react-bootstrap/Image';
-import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import { MdDelete, MdEditNote } from "react-icons/md";
 
-function Profile( { author, setAuthor} ) {
+function Profile() {
     const navigate = useNavigate()
+    const { author, setAuthor} = useContext(AuthorContext)
     const [changes, setChanges] = useState({...author})
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)

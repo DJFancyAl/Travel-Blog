@@ -13,6 +13,7 @@ import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
 import Destination from "./Components/Pages/Destination";
 import ResponsiveAppBar from "./Components/NavBar";
+import { AuthorContext } from "./Context/AuthorContext"
 
 function App() {
   // States
@@ -70,33 +71,26 @@ function App() {
   }
 
   return (
-    <div onClick={() => console.log(author.username)} className="bg-secondary-emphasis">
+    <div className="bg-secondary-emphasis">
       <Router>
-        <ResponsiveAppBar author={author} setAuthor={setAuthor} />
-        <div className="mt-3">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-            <Route path="/blog/new" element={<NewBlog author={author._id} addBlog={addBlog} />} />
-            <Route path="/blog/:id" element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />} />
-            <Route path="/blog/edit/:id" element={<EditBlog />} />
-            <Route path="/authors" element={<Authors authors={authors} />} />
-            <Route path="/author/:id" element={<ShowAuthor />} />
-            <Route
-              path="/authors/register"
-              element={<Register setAuthor={setAuthor} />}
-            />
-            <Route
-              path="/authors/login"
-              element={<Login setAuthor={setAuthor} />}
-            />
-            <Route
-              path="/authors/profile"
-              element={<Profile author={author} setAuthor={setAuthor} />}
-            />
-            <Route path="/destination" element={<Destination />} />
-          </Routes>
-        </div>
+        <AuthorContext.Provider value={{author, setAuthor}}>
+          <ResponsiveAppBar />
+          <div className="mt-3">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs blogs={blogs} />} />
+              <Route path="/blog/new" element={<NewBlog addBlog={addBlog} />} />
+              <Route path="/blog/:id" element={<ShowBlog author={author._id} deleteBlog={deleteBlog} />} />
+              <Route path="/blog/edit/:id" element={<EditBlog />} />
+              <Route path="/authors" element={<Authors authors={authors} />} />
+              <Route path="/author/:id" element={<ShowAuthor />} />
+              <Route path="/authors/register" element={<Register />} />
+              <Route path="/authors/login" element={<Login />} />
+              <Route path="/authors/profile" element={<Profile />} />
+              <Route path="/destination" element={<Destination />} />
+            </Routes>
+          </div>
+        </AuthorContext.Provider>
       </Router>
     </div>
   );

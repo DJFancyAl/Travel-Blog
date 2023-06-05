@@ -1,7 +1,7 @@
 // Dependencies
 const router = require('express').Router()
 const {validateToken} = require('../JWT')
-const {Blog, Author, Comment} = require('../models')
+const {Blog, Comment} = require('../models')
 
 // Create Comment
 router.post('/', validateToken, async (req,res) =>{
@@ -16,7 +16,6 @@ router.post('/', validateToken, async (req,res) =>{
     catch(err){
         res.status(500).json(err)
     }
-
 })
 
 // Delete Comment

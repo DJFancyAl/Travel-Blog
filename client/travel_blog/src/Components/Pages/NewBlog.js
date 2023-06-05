@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
+import { AuthorContext } from '../../Context/AuthorContext';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import { MdNoteAdd } from "react-icons/md";
 import GrowButton from '../GrowButton'
 
-function NewBlog({ author, addBlog }) {
+function NewBlog({ addBlog }) {
   // State
   const navigate = useNavigate()
+  const {author} = useContext(AuthorContext)
   const [newBlog, setNewBlog] = useState({
-    author: author
+    author: author._id
   })
 
   // Handle Change

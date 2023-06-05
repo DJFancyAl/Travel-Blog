@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthorContext } from "../../Context/AuthorContext";
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -10,9 +10,10 @@ import Fade from 'react-bootstrap/Fade';
 import { MdLockOpen} from "react-icons/md";
 import GrowButton from "../GrowButton";
 
-function Login( { setAuthor }) {
+function Login() {
     // State
     const navigate = useNavigate()
+    const { setAuthor } = useContext(AuthorContext)
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)
 
