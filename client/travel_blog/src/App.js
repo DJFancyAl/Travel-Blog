@@ -76,7 +76,7 @@ function App() {
   }
 
   return (
-    <div className="bg-secondary-emphasis d-flex flex-column" style={{height: '100vh'}}>
+    <div className="bg-secondary-emphasis d-flex flex-column" style={{minHeight: '100vh'}}>
       <Router>
         <AuthorContext.Provider value={{author, setAuthor}}>
           <ResponsiveAppBar />
