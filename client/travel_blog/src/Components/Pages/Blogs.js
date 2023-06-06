@@ -1,4 +1,5 @@
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import Post from '../Post';
 
 function Blogs( { blogs } ) {
@@ -13,7 +14,7 @@ function Blogs( { blogs } ) {
   return (
     <Container>
         <h1 className='display-5 mb-4'>View All Blogs</h1>
-        {blogList}
+        <Row className='justify-content-center g-4 mb-5 p-0'>{blogList}</Row>
     </Container>
   )
 }
