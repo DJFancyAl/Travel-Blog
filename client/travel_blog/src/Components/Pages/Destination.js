@@ -15,24 +15,39 @@ import image9 from "../../../src/images/image9.jpg"; // Update the path to image
 function Destination() {
   return (
     <Container>
-      <h1>Destination Page</h1>
+      <h1>Destinations</h1>
       <Row>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image4} alt="Destination 4" />
-            <p>Destination 4</p>
+            <p>
+              Cruise Life sail anywhere in the world it is recommended if you
+              want to get more for your money. Many cruises provide packages for
+              you to choose from. Including drink packages, food packages, and
+              exploration packages for the countries visited.
+            </p>
           </Container>
         </Col>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image5} alt="Destination 5" />
-            <p>Destination 5</p>
+            <p>
+              Guatemala is currently a hot destination. There are lots of things
+              to do in Guatemala such as hiking, going to the beach, going to
+              the mountains. The country is located in Central America and is
+              rich in Garifuna and Myan culture.
+            </p>
           </Container>
         </Col>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image6} alt="Destination 6" />
-            <p>Destination 6</p>
+            <p>
+              Jamaica is one of the most popular destinations this time of year.
+              The food is delicious and the views are amazing. So many resorts
+              in Jamaica offer all inclusive packages. Jamaica is located in the
+              Caribbean and should be on the list of destinations.
+            </p>
           </Container>
         </Col>
       </Row>
@@ -40,19 +55,33 @@ function Destination() {
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image7} alt="Destination 7" />
-            <p>Destination 7</p>
+            <p>
+              Santorini,Greece should be on everyone's bucket list. The country
+              is breathe takingly beautiful. Santorini overlooks the sea with
+              views of neighboring islands. Santorini was a country made for
+              memories.
+            </p>
           </Container>
         </Col>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image8} alt="Destination 8" />
-            <p>Destination 8</p>
+            <p>
+              Aruba is a beloved travel location to many. Aruba is known as "one
+              happy island" for good reason. Aruba has variety of things to do.
+              Its recommended to visit the Flamingo beach on the happy island.
+            </p>
           </Container>
         </Col>
         <Col sm={4}>
           <Container className="custom-container">
             <img src={image9} alt="Destination 9" />
-            <p>Destination 9</p>
+            <p>
+              St. Maarten is similar to Aruba as they are both a part of the
+              Kingdom of the Netherlands. This country does provide its own
+              unique flare with features such a span lagoons, beaches and salt
+              pans. The country provides a very relaxing vibe.{" "}
+            </p>
           </Container>
         </Col>
       </Row>
@@ -64,7 +93,7 @@ function Destination() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: #ff4f00;
+          
         }
         
         .custom-container img {

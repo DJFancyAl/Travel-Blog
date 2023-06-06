@@ -13,14 +13,14 @@ import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
 import Destination from "./Components/Pages/destination";
 import ResponsiveAppBar from "./Components/NavBar";
-
+import Travel from "./Components/Pages/Travel";
 function App() {
   // States
   const [author, setAuthor] = useState({});
   const [blogs, setBlogs] = useState([]);
   const [authors, setAuthors] = useState([]);
 
-  // Update author in localstorage
+  // Update author in local storage
   useEffect(() => {
     localStorage.setItem("author", author);
   }, [author]);
@@ -98,6 +98,7 @@ function App() {
               element={<Profile author={author} setAuthor={setAuthor} />}
             />
             <Route path="/destination" element={<Destination />} />
+            <Route path="/travel" element={<Travel />} />
           </Routes>
         </div>
       </Router>
