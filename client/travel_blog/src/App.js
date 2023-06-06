@@ -13,17 +13,18 @@ import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
 import Destination from "./Components/Pages/destination";
 import ResponsiveAppBar from "./Components/NavBar";
-import Travel from "./Components/Pages/Travel";
+
 function App() {
   // States
   const [author, setAuthor] = useState({});
   const [blogs, setBlogs] = useState([]);
   const [authors, setAuthors] = useState([]);
 
-  // Update author in local storage
+  // Update author in localstorage
   useEffect(() => {
-    localStorage.setItem("author", author);
-  }, [author]);
+    const storedAuthor = JSON.parse(localStorage.getItem("author"));
+    if (storedAuthor !== null) setAuthor(storedAuthor);
+  }, []);
 
   // Fetches all blogs
   useEffect(() => {
@@ -67,7 +68,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="bg-secondary-emphasis">
       <Router>
         <ResponsiveAppBar author={author} setAuthor={setAuthor} />
         <div className="mt-3">
@@ -98,7 +99,6 @@ function App() {
               element={<Profile author={author} setAuthor={setAuthor} />}
             />
             <Route path="/destination" element={<Destination />} />
-            <Route path="/travel" element={<Travel />} />
           </Routes>
         </div>
       </Router>

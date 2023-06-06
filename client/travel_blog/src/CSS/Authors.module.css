@@ -1,0 +1,7 @@
+.author {
+    transition: 0.4s;
+}
+
+.author:hover {
+    transform: scale(1.03);
+}

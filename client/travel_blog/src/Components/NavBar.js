@@ -1,8 +1,10 @@
+import { useState, useContext } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
+import { AuthorContext } from '../Context/AuthorContext';
 import { useNavigate } from "react-router-dom";
 import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 
@@ -14,8 +16,9 @@ function YourComponent() {
   };
 }
 
-function NavBar({ author, setAuthor }) {
+function NavBar() {
   const navigate = useNavigate();
+  const {author, setAuthor} = useContext(AuthorContext)
   const style = { color: "inherit", textDecoration: "inherit" };
 
   // Logout

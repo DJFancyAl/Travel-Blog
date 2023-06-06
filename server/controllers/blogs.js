@@ -1,6 +1,7 @@
 // Dependencies
 require('dotenv').config()
 const router = require('express').Router()
+const {validateToken} = require('../JWT')
 const {Blog, Author, Comment} = require('../models')
 
 // Get All Blogs
@@ -32,7 +33,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // Create Blog
-router.post('/', async (req, res) => {
+router.post('/', validateToken, async (req, res) => {
     try {
         const createdBlog = await Blog.create(req.body)
         res.status(200).json(createdBlog)
@@ -42,7 +43,7 @@ router.post('/', async (req, res) => {
 })
 
 // Update Blog
-router.put('/:id', async (req, res) => {
+router.put('/:id', validateToken, async (req, res) => {
     try {
         const updatedBlog = await Blog.findByIdAndUpdate(req.params.id, req.body)
         res.status(200).json({message: "Updated Blog"})
@@ -52,7 +53,7 @@ router.put('/:id', async (req, res) => {
 })
 
 // Delete Blog
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', validateToken, async (req, res) => {
     try {
         const deletedBlog = await Blog.findByIdAndDelete(req.params.id)
         res.status(200).json({message: "Blog Deleted!"})

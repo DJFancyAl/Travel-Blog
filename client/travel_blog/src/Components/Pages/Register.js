@@ -1,19 +1,21 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
+import { AuthorContext } from '../../Context/AuthorContext';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 import Fade from 'react-bootstrap/Fade';
 import { MdPlayArrow } from "react-icons/md";
+import GrowButton from '../GrowButton'
 
-function Register( { setAuthor }) {
+function Register() {
     // State
     const [newAuthor, setNewAuthor] = useState({})
     const [alert, setAlert] = useState({})
     const [open, setOpen] = useState(false)
+    const {setAuthor} = useContext(AuthorContext)
     const navigate = useNavigate()
 
     // Handle Change
@@ -54,9 +56,9 @@ function Register( { setAuthor }) {
 
     return (
         <Container>
-            <h1>Register New User:</h1>
                 <Row className="justify-content-center">
                     <Col xs={12} md={6}>
+                        <h1 className='mb-5 display-5'>Register:</h1>
                         <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="username">
                             <Form.Label>Username</Form.Label>
@@ -73,9 +75,10 @@ function Register( { setAuthor }) {
                             <Form.Control type="password" placeholder="Confirm password" onChange={handleChange} />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <GrowButton variant='primary' type='submit' start='110px' end='200px'>
                             Register <MdPlayArrow className='mb-1' size={16} />
-                        </Button>
+                        </GrowButton>
+
                         </Form>
                         <Fade in={open} className='mt-3'>
                             <div>

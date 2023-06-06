@@ -1,0 +1,16 @@
+.post {
+    transition: 0.5s;
+}
+
+.post:hover {
+    transform: scale(1.03);
+}
+
+.link {
+    color: inherit;
+    text-decoration:  inherit;
+}
+
+.link:hover {
+    color: #d3d3d3;
+}

@@ -27,6 +27,7 @@ function EditBlog() {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
+            "x-access-token": localStorage.getItem('token')
         },
         body: JSON.stringify(editedBlog)
         })

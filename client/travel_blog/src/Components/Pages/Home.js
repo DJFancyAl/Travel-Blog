@@ -5,7 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-import "../../css/style.css";
+// import "../../css/style.css";
 
 import image1 from "../../images/image1.png";
 import image2 from "../../images/image2.png";
