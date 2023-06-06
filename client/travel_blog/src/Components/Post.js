@@ -1,6 +1,5 @@
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Image from 'react-bootstrap/Image';
 import { Link } from "react-router-dom";
 import GrowButton from './GrowButton'
 import styles from '../CSS/Post.module.css'
@@ -8,16 +7,18 @@ import styles from '../CSS/Post.module.css'
 function Post({ blog }) {
   // Styling
   const imageStyle = {
-    maxWidth: '500px',
-    maxHeight: '300px',
+    backgroundImage: `url(${blog.pic})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    minHeight: '250px'
   }
   const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric' })
 
 
   return (
     <Row className={styles.post + ' shadow bg-light d-flex row my-5'}>
-      <Col className='p-0 overflow-hidden d-flex justify-content-center' xs={12} md={3}>
-        <Link to={`/blog/${blog._id}`}><Image className="p-0 object-fit-cover" src={blog.pic} alt={blog.title} style={imageStyle} /></Link>
+      <Col style={imageStyle} className='p-0 overflow-hidden d-flex justify-content-center' xs={12} md={4} xl={3}>
+        <Link className='w-100 h-100' to={`/blog/${blog._id}`}></Link>
       </Col>
       <Col className="p-0 d-flex flex-column flex-grow-1">
         <figure className="bg-primary text-light p-3 text-center m-0">
