@@ -63,7 +63,7 @@ function ShowBlog( { deleteBlog } ) {
       <h1 onClick={() => console.log(blog)}>{blog.title}</h1>
       <p className='fst-italic'>{formattedDate}</p>
       {blog.author && <p className="lead">Written By: {blog.author.name}</p>}
-      <div className='my-3 overflow-auto' style={{whiteSpace: 'pre-wrap'}}>{blog.pic && <Image className='ms-3 shadow' style={{maxWidth: '50%'}} align='right' src={blog.pic} alt={blog.title} />}{blog.body}</div>
+      <div className='my-3 overflow-auto' style={{whiteSpace: 'pre-wrap'}}>{blog.pic && <Image className='ms-3 mb-3 shadow' style={{maxWidth: '50%'}} align='right' src={blog.pic} alt={blog.title} />}{blog.body}</div>
       
       {blog.author && blog.author._id === author._id && 
         <>

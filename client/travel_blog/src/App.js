@@ -80,9 +80,9 @@ function App() {
       <Router>
         <AuthorContext.Provider value={{author, setAuthor}}>
           <ResponsiveAppBar />
-          <div className="mt-3 flex-grow-1">
+          <div className="mt-3 d-flex flex-grow-1">
             {isLoading ? 
-              <Container className="text-center h-100 d-flex justify-content-center align-items-center">
+              <Container style={{minHeight: '100%'}} className="text-center d-flex justify-content-center align-items-center">
                 <div>
                   <SquareLoader color="#2b5f57" size={250} className="shadow-lg mb-5" />
                   <h1 className="display-3">Loading...</h1>
