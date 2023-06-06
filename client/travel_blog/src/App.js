@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     async function getBlogs() {
       setIsLoading(true)
-      const response = await fetch("http://localhost:3001/blogs");
+      const response = await fetch("https://travel-blog-api.onrender.com/blogs");
       const data = await response.json();
       setBlogs(data.blogs);
       setAuthors(data.authors);
