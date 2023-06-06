@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import AuthorBlog from '../AuthorBlog';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup';
 import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
-import styles from '../../CSS/ShowAuthor.module.css'
 
 function ShowAuthor() {
     // States
@@ -26,8 +25,7 @@ function ShowAuthor() {
 
     // Create the blog list
     const blogList = shownAuthor.blogs.map(blog => {
-        const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
-        return <Link className='text-decoration-none' to={`/blog/${blog._id}`}><ListGroup.Item className={styles.listItem + ' border border-dark lead py-4'}>{blog.title} - {formattedDate}</ListGroup.Item></Link>
+        return <AuthorBlog blog={blog} />
     })
 
   return (
@@ -38,8 +36,8 @@ function ShowAuthor() {
                 {shownAuthor.bio && <p className='lead' style={{whiteSpace: 'pre-wrap'}}>{shownAuthor.bio}</p>}
             </Col>
             {shownAuthor.pic && 
-            <Col xs={12} lg={6} className='text-center'>
-                <Image className='shadow' src={shownAuthor.pic} alt={shownAuthor.name} />
+            <Col xs={12} lg={6} className='text-center p-5'>
+                <Image fluid className='shadow' src={shownAuthor.pic} alt={shownAuthor.name} />
             </Col>}
         </Row>
         {shownAuthor.blogs[0] && 

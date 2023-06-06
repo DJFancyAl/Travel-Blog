@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,14 +7,7 @@ import Button from "react-bootstrap/Button";
 import { AuthorContext } from '../Context/AuthorContext';
 import { useNavigate } from "react-router-dom";
 import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
-
-function YourComponent() {
-  const style = {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "1.5rem",
-  };
-}
+import travelBlogLogo from '../images/travel-blog-logo.png'
 
 function NavBar() {
   const navigate = useNavigate();
@@ -29,43 +22,39 @@ function NavBar() {
   }
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container className="justify-content-between">
-        <div className="d-flex align-items-center">
-          <Link to="/" style={style}>
-            <Navbar.Brand>Milestone Travel Blog</Navbar.Brand>
-          </Link>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+      <Container>
+        <Navbar.Brand as={NavLink} to="/">
+          <img
+                alt="Travel Blog Logo"
+                src={travelBlogLogo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top me-3"
+              />
+            Milestone Travel Blog
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/blogs">
-              Blogs
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/authors">
-              Authors
-            </Nav.Link>
-            {author._id && (
-              <Nav.Link as={NavLink} to="/blog/new">
-                Write Blog
-              </Nav.Link>
-            )}
+            <Nav.Link as={NavLink} to="/blogs">Blogs</Nav.Link>
+            <Nav.Link as={NavLink} to="/authors">Authors</Nav.Link>
+            {author._id && <Nav.Link as={NavLink} to="/blog/new">Write Blog</Nav.Link>}
           </Nav>
-        </div>
-        {author._id ? (
-          <div className="d-flex align-items-center">
-            <Button className="mx-3" as={Link} to="./authors/profile">
-              Hello {author.username}! <MdPerson2 className="mb-1" size={18} />
-            </Button>
-            <Button onClick={logout}>Logout <MdLogout className="mb-1" size={18} /></Button>
-          </div>
-        ) : (
-          <div className="d-flex align-items-center">
-            <Button className="mx-3" as={Link} to="./authors/register">
-              Register <MdPersonAddAlt1 className="mb-1" size={18} />
-            </Button>
-            <Button as={Link} to="./authors/login">
-              Login <MdLogin size={20} />
-            </Button>
-          </div>
-        )}
+          {author._id ? <Nav>
+            <div>
+              <Button className='me-3' as={Link} to="./authors/profile">Hello {author.username}! <MdPerson2 className="mb-1" size={18} /></Button>
+              <Button onClick={logout}>Logout <MdLogout className="mb-1" size={18} /></Button>
+            </div>
+          </Nav>
+          :
+          <Nav>
+            <div>
+              <Button className='me-3' as={Link} to="./authors/register">Register <MdPersonAddAlt1 className="mb-1" size={18} /></Button>
+              <Button as={Link} to="./authors/login">Login <MdLogin size={20} /></Button>
+            </div>
+          </Nav>}
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

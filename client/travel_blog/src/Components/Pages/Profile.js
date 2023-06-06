@@ -113,8 +113,8 @@ function Profile() {
                     </Fade>
                 </Col>
                 {author.pic &&
-                <Col className='d-flex align-items-center'>
-                    <Image className='shadow m-auto' src={author.pic} alt={author.username} />
+                <Col className='d-flex align-items-center p-5'>
+                    <Image fluid className='shadow m-auto' src={author.pic} alt={author.username} />
                 </Col>
                 }
             </Row>
