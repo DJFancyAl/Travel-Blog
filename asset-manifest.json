@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/milestone-travel_blog/static/css/main.4287226e.css",
-    "main.js": "/milestone-travel_blog/static/js/main.be5f0bbd.js",
-    "static/media/image2.png": "/milestone-travel_blog/static/media/image2.14ec6ba6ebe1b886d4fa.png",
-    "static/media/image3.png": "/milestone-travel_blog/static/media/image3.ff722e276198624b33cc.png",
-    "static/media/image1.png": "/milestone-travel_blog/static/media/image1.f2a1224f933ae29fa2ae.png",
-    "index.html": "/milestone-travel_blog/index.html",
-    "main.4287226e.css.map": "/milestone-travel_blog/static/css/main.4287226e.css.map",
-    "main.be5f0bbd.js.map": "/milestone-travel_blog/static/js/main.be5f0bbd.js.map"
+    "main.css": "/milestone-travel-blog/static/css/main.4287226e.css",
+    "main.js": "/milestone-travel-blog/static/js/main.ffc27a08.js",
+    "static/media/image2.png": "/milestone-travel-blog/static/media/image2.14ec6ba6ebe1b886d4fa.png",
+    "static/media/image3.png": "/milestone-travel-blog/static/media/image3.ff722e276198624b33cc.png",
+    "static/media/image1.png": "/milestone-travel-blog/static/media/image1.f2a1224f933ae29fa2ae.png",
+    "index.html": "/milestone-travel-blog/index.html",
+    "main.4287226e.css.map": "/milestone-travel-blog/static/css/main.4287226e.css.map",
+    "main.ffc27a08.js.map": "/milestone-travel-blog/static/js/main.ffc27a08.js.map"
   },
   "entrypoints": [
     "static/css/main.4287226e.css",
-    "static/js/main.be5f0bbd.js"
+    "static/js/main.ffc27a08.js"
   ]
 }
