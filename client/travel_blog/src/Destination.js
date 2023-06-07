@@ -3,12 +3,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import image4 from "../../../src/images/image4.jpg"; // Update the path to image4
-import image5 from "../../../src/images/image5.jpg"; // Update the path to image5
-import image6 from "../../../src/images/image6.jpg"; // Update the path to image6
-import image7 from "../../../src/images/image7.jpg"; // Update the path to image7
-import image8 from "../../../src/images/image8.jpg"; // Update the path to image8
-import image9 from "../../../src/images/image9.jpg"; // Update the path to image9
+import image4 from "./images/image4.jpg";
+import image5 from "./images/image5.jpg";
+import image6 from "./images/image6.jpg";
+import image7 from "./images/image7.jpg";
+import image8 from "./images/image8.jpg";
+import image9 from "./images/image9.jpg";
 
 function Destination() {
   return (
