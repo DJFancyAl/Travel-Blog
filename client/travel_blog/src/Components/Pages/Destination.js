@@ -1,9 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "../../css/style.css"; // Update the path to the CSS file
 
 import image4 from "../../../src/images/image4.jpg"; // Update the path to image4
 import image5 from "../../../src/images/image5.jpg"; // Update the path to image5

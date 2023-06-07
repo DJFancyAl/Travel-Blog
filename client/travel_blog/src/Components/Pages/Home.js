@@ -5,7 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-// import "../../css/style.css";
+import "../../css_old/style.css";
 
 import image1 from "../../images/image1.png";
 import image2 from "../../images/image2.png";
@@ -30,24 +30,21 @@ function Home() {
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[0]} alt="First slide" />
           <Carousel.Caption>
-            <h3></h3>
-            <p>Keep calm and travel on.</p>
+            <h3>Keep calm and travel on.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[1]} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3></h3>
-            <p>Always say yes to new adventures.</p>
+            <h3>Always say yes to new adventures.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: 500, marginBottom: 10 }}>
           <img className="d-block w-100" src={imgs[2]} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3></h3>
-            <p>What's on my bucket list? Everywhere.</p>
+            <h3>What's on my bucket list? Everywhere...</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

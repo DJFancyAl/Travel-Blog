@@ -1,24 +1,24 @@
-import { useState, useContext } from 'react'
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { AuthorContext } from '../Context/AuthorContext';
+import { AuthorContext } from "../Context/AuthorContext";
 import { useNavigate } from "react-router-dom";
 import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 
-function YourComponent() {
-  const style = {
-    color: "white",
-    textDecoration: "none",
-    fontSize: "1.5rem",
-  };
-}
+//function YourComponent() {
+//const style = {
+//color: "white",
+//textDecoration: "none",
+//fontSize: "1.5rem",
+//};
+//}
 
 function NavBar() {
   const navigate = useNavigate();
-  const {author, setAuthor} = useContext(AuthorContext)
+  const { author, setAuthor } = useContext(AuthorContext);
   const style = { color: "inherit", textDecoration: "inherit" };
 
   // Logout
@@ -26,7 +26,7 @@ function NavBar() {
     setAuthor({});
     localStorage.clear();
     navigate("/");
-  }
+  };
 
   return (
     <Navbar bg="dark" variant="dark">
@@ -54,7 +54,9 @@ function NavBar() {
             <Button className="mx-3" as={Link} to="./authors/profile">
               Hello {author.username}! <MdPerson2 className="mb-1" size={18} />
             </Button>
-            <Button onClick={logout}>Logout <MdLogout className="mb-1" size={18} /></Button>
+            <Button onClick={logout}>
+              Logout <MdLogout className="mb-1" size={18} />
+            </Button>
           </div>
         ) : (
           <div className="d-flex align-items-center">

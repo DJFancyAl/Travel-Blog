@@ -1,5 +1,5 @@
 import React from "react";
-import "../../css/style.css";
+import "../../css_old/style.css";
 
 const Travel = () => {
   const milestoneTips = [
