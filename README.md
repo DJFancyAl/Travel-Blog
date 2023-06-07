@@ -21,6 +21,12 @@ Our Blog site is for the niche who likes to travel the world and share their exp
 
 - **Cross platform**
 
+- **Authentication & Authorization**
+
+The great thing about this application is that it is accessible to anyone! Users have the ability to register for an account, customize their profile, and create original content. After an account is created, the user is able to easily log in and work with their blogs or comments:
+
+![image](https://github.com/DJFancyAl/Travel-Blog/assets/80846699/f9509c4d-f2b0-43a7-9c3f-2b29dc7f8a20)
+![image](https://github.com/DJFancyAl/Travel-Blog/assets/80846699/23a5a7bf-d8fa-49a0-9c3d-ee420d0d48a8)
 
 ## Lessons Learned
 
