@@ -28,6 +28,12 @@ The great thing about this application is that it is accessible to anyone! Users
 
 ![image](https://github.com/DJFancyAl/Travel-Blog/assets/80846699/fc8299ca-813b-45df-beb0-25c8390870d1)
 
+Upon account registration the user's password is hashed using BCrypt - so the password is always secure and cannot be viewed by another person. When the user logs in - their password is compared to the hashed password to authenticate the user.
+
+For an added layer of security - we used "JSON Web Tokens" for authorization. Basically, the user is assigned a unique web token ID, which must be used when trying to perform functions such as deleting a blog or updating a profile.
+
+Lastly, authenticated users are given options that anonymous users do not have, such as the ability to write a blog or create a comment. This is achieve with simple "if/then" statements that show these options when the user is authenticated.
+
 ## Lessons Learned
 
 A hard lesson we learned was, to communicate and Time Management.
@@ -42,6 +48,20 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 - **[Elka](https://github.com/Elka1214):** Content, Home Page
 - **[Estaban](https://github.com/ebarroso2214):** BackEnd
 - **[Yash](https://github.com/YashxPatel):** FrontEnd
+
+## Credits
+
+#### Creating the Authentication System
+
+- Title: Authentication With JWT Tutorial - React, NodeJS | How To _ Author: (PedroTech)) _ Date: (2021 _ Availability: (https://www.youtube.com/watch?v=KgXT63wPMPc) _
+
+#### Using React Context for Author Data
+
+- Title: React API Reference - useContext Hook _ Author: (Meta)) _ Date: (2023 _ Availability: (https://react.dev/reference/react/useContext) _
+
+#### Images
+
+Belgrade, Servia by [Lonely Planet](https://lp-cms-production.imgix.net/features/2017/09/Belgrade-Knez-Mihailova-street-af958c3aa30c.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1024).
 
 ## License
 
