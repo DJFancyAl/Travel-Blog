@@ -13,23 +13,24 @@ import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
 import Destination from "./Components/Pages/Destination";
+import Travel from "./Components/Pages/Travel";
 import ResponsiveAppBar from "./Components/NavBar";
-import { AuthorContext } from "./Context/AuthorContext"
+import { AuthorContext } from "./Context/AuthorContext";
 import { Container } from "react-bootstrap";
 
 function App() {
   // States
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [author, setAuthor] = useState({});
   const [blogs, setBlogs] = useState([]);
   const [authors, setAuthors] = useState([]);
 
   // Get Author
   useEffect(() => {
-    const storedAuthor = JSON.parse(localStorage.getItem('author'))
-    if(storedAuthor !== null) setAuthor(storedAuthor)
-  },[])
-  
+    const storedAuthor = JSON.parse(localStorage.getItem("author"));
+    if (storedAuthor !== null) setAuthor(storedAuthor);
+  }, []);
+
   // Fetches all blogs
   useEffect(() => {
     async function getBlogs() {
@@ -41,44 +42,43 @@ function App() {
       setIsLoading(false)
     }
 
-    getBlogs()
-  }, [])
+    getBlogs();
+  }, []);
 
   // Add Blog
   const addBlog = async (newBlog) => {
-    const response = await fetch('http://localhost:3001/blogs', {
+    const response = await fetch("http://localhost:3001/blogs", {
       method: "post",
       headers: {
-        'Content-Type': 'application/json',
-        "x-access-token": localStorage.getItem('token')
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify(newBlog)
-    })
-    const data = await response.json()
-    setBlogs([data, ...blogs])
-    return data._id
-  }
+      body: JSON.stringify(newBlog),
+    });
+    const data = await response.json();
+    setBlogs([data, ...blogs]);
+    return data._id;
+  };
 
   // Delete Blog
   const deleteBlog = async (id) => {
     const response = await fetch(`http://localhost:3001/blogs/${id}`, {
-        method: "delete",
-        headers: {
-            'Content-Type': 'application/json',
-            "x-access-token": localStorage.getItem('token')
-        }})
-    const data = await response.json()
-    if(data.message) {
-      setBlogs(
-        blogs.filter(blog => blog._id !== id)
-      )
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        "x-access-token": localStorage.getItem("token"),
+      },
+    });
+    const data = await response.json();
+    if (data.message) {
+      setBlogs(blogs.filter((blog) => blog._id !== id));
     }
-  }
+  };
 
   return (
     <div className="bg-secondary-emphasis d-flex flex-column" style={{minHeight: '100vh'}}>
       <Router>
-        <AuthorContext.Provider value={{author, setAuthor}}>
+        <AuthorContext.Provider value={{ author, setAuthor }}>
           <ResponsiveAppBar />
           <div className="mt-3 d-flex flex-grow-1">
             {isLoading ? 
@@ -100,7 +100,8 @@ function App() {
               <Route path="/authors/register" element={<Register />} />
               <Route path="/authors/login" element={<Login />} />
               <Route path="/authors/profile" element={<Profile />} />
-              <Route path="/destination" element={<Destination />} />
+              <Route path="/destinations" element={<Destination />} />
+              <Route path="/travel" element={<Travel />} />
             </Routes>
             }
           </div>

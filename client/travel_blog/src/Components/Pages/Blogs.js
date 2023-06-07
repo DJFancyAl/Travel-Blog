@@ -14,7 +14,7 @@ function Blogs( { blogs } ) {
   return (
     <Container>
         <h1 className='display-5 mb-4'>View All Blogs</h1>
-        <Row className='justify-content-center g-4 mb-5 p-0'>{blogList}</Row>
+        <Row className='justify-content-center g-4 mx-2 mb-5 p-0'>{blogList}</Row>
     </Container>
   )
 }

@@ -16,7 +16,7 @@ function Post({ blog }) {
 
 
   return (
-    <Row className={styles.post + ' shadow bg-light d-flex row my-5 p-0'}>
+    <Row className={styles.post + ' shadow bg-light d-flex my-5 p-0'}>
       <Col style={imageStyle} className='p-0 overflow-hidden d-flex justify-content-center' xs={12} md={4} xl={3}>
         <Link className='w-100 h-100' to={`/blog/${blog._id}`}></Link>
       </Col>
