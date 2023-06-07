@@ -5,7 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-// import "../../css/style.css";
+import "../../css_old/style.css";
 
 import image1 from "../../images/image1.png";
 import image2 from "../../images/image2.png";
@@ -30,26 +30,21 @@ function Home() {
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[0]} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Keep calm and travel on.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[1]} alt="Second slide" />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Always say yes to new adventures.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: 500, marginBottom: 10 }}>
           <img className="d-block w-100" src={imgs[2]} alt="Third slide" />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>What's on my bucket list? Everywhere...</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
@@ -80,7 +75,7 @@ function Home() {
             />
           </div>
           <Card.Body>
-            <Card.Text>TRAVEL TIPS</Card.Text>
+            <Link to="/Travel">TRAVEL TIPS</Link>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
@@ -95,7 +90,7 @@ function Home() {
             />
           </div>
           <Card.Body>
-            <Link to="/Destination">DESIRED DESTINATION</Link>
+            <Link to="/Destination">DESIRED DESTINATIONS</Link>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">Last updated 3 mins ago</small>
@@ -109,12 +104,10 @@ function Home() {
           <blockquote className="blockquote mb-0">
             <p>
               {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.{" "}
+              A journey of a thousand miles begins with a single step. – Lao
+              Tzu.{" "}
             </p>
-            <footer className="blockquote-footer">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </footer>
+            <footer className="blockquote-footer"></footer>
           </blockquote>
         </Card.Body>
       </Card>

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { AuthorContext } from '../Context/AuthorContext';
+import { AuthorContext } from "../Context/AuthorContext";
 import { useNavigate } from "react-router-dom";
 import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 import travelBlogLogo from '../images/travel-blog-logo.png'
@@ -19,7 +19,7 @@ function NavBar() {
     setAuthor({});
     localStorage.clear();
     navigate("/");
-  }
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
