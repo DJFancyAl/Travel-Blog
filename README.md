@@ -1,61 +1,72 @@
-Travel-Blog NYU-SD-07 Milestone Project:
+![Logo](https://github.com/DJFancyAl/Travel-Blog/assets/104106586/2b361142-ef0a-4eb9-a24c-c587c0da1486)
 
-## Project Description
+# MileStone Travel Blog
 
-We are looking to create a Travel blog with the ability for travelers to blog, upload content and leave comments.
-Authors will have an opportunity to read the blogs of others and recommend new locations and travel tips.
+Our Blog site is for the niche who likes to travel the world and share their experience with other travelers around the world.
 
-Create the user interface.
-The application will have frontend CSS an Framework.
-The Backend will use JavaScript, Bootstrap.
-Tables and routes created.
+## Tech Stack
 
-## Project Planning
+**Client:** React, Bootstrap
 
-Front End - React, Bootstrap
+**Server:** MongoDB, Express, Node
 
-Frontend Pages Needed:
+## Features
 
--Index
--Posts
--One Post View
--Create Post
--Authors
--Author View
+- **Responsive**
 
-Back End - Express.js
-Backend Routes Needed:
-Posts Controller
-Get - all blog posts
-Get - One blog view
-POST - Create blog post
-UPDATE - Update blog post
-DELETE - Delete blog post
-Wildcard
+![rshoth](https://github.com/DJFancyAl/Travel-Blog/assets/104106586/be56dc5a-1190-4ebc-94c3-93f821b41b68)
 
-Database - MongoDB
-Tables Needed:
-Blog Posts
-Author (String)
-Pic(String) (users will submit image link)
-Location (String)
-Title (String)
-Data (Date)
-BodyText (String)
-Comments
-Author (String)
-BodyText(String)
+![rshotv](https://github.com/DJFancyAl/Travel-Blog/assets/104106586/ff70c031-98b6-46fe-81f4-a582a29076a7)
 
-Tasks:
-Front End
-Create React App
-Install Material UI
-Back End
-Npm init
-Create express app
-Setup server.js
-Setup controllers
-Setup Models
-MongoDB
-Create Database
-Create tables
+- **Authentication & Authorization**
+
+The great thing about this application is that it is accessible to anyone! Users have the ability to register for an account, customize their profile, and create original content. After an account is created, the user is able to easily log in and work with their blogs or comments:
+
+![image](https://github.com/DJFancyAl/Travel-Blog/assets/80846699/d896047e-87c0-4c93-a410-6f3b3d243919)
+
+![image](https://github.com/DJFancyAl/Travel-Blog/assets/80846699/fc8299ca-813b-45df-beb0-25c8390870d1)
+
+Upon account registration the user's password is hashed using BCrypt - so the password is always secure and cannot be viewed by another person. When the user logs in - their password is compared to the hashed password to authenticate the user.
+
+For an added layer of security - we used "JSON Web Tokens" for authorization. Basically, the user is assigned a unique web token ID, which must be used when trying to perform functions such as deleting a blog or updating a profile.
+
+Lastly, authenticated users are given options that anonymous users do not have, such as the ability to write a blog or create a comment. This is achieve with simple "if/then" statements that show these options when the user is authenticated.
+
+## Lessons Learned
+
+A hard lesson we learned was, to communicate and Time Management.
+
+## Optimizations
+
+What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
+
+## Authors
+
+- **[Albert](https://github.com/DJFancyAl):** BackEnd
+- **[Elka](https://github.com/Elka1214):** Content, Home Page
+- **[Estaban](https://github.com/ebarroso2214):** BackEnd
+- **[Yash](https://github.com/YashxPatel):** FrontEnd
+
+## Credits
+
+#### Creating the Authentication System
+
+- Title: Authentication With JWT Tutorial - React, NodeJS | How To _ Author: (PedroTech)) _ Date: (2021 _ Availability: (https://www.youtube.com/watch?v=KgXT63wPMPc) _
+
+#### Using React Context for Author Data
+
+- Title: React API Reference - useContext Hook _ Author: (Meta)) _ Date: (2023 _ Availability: (https://react.dev/reference/react/useContext) _
+
+#### Images
+
+Belgrade, Serbia by [Lonely Planet](https://lp-cms-production.imgix.net/features/2017/09/Belgrade-Knez-Mihailova-street-af958c3aa30c.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1024).
+
+Italy Coast by [wallpapercrafter.com](https://wallpapercrafter.com/th800/33038-Italy-coast-4K-4k-wallpaper-4K-Tyrrhenian-Sea-houses-sky-clouds-booking-rest-travel.jpg)
+
+Mountain Wallpaper by [memes.co](https://memes.co.in/wallpapers/uploads/1625904083.jpg)
+
+Men Nature and Landscapes by [wallpaperflare.com](https://c0.wallpaperflare.com/preview/453/499/723/men-nature-and-landscapes-travel-adventure.jpg)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
