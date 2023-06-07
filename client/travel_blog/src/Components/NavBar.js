@@ -10,9 +10,9 @@ import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 import travelBlogLogo from '../images/travel-blog-logo.png'
 
 function NavBar() {
+  // State
   const navigate = useNavigate();
   const {author, setAuthor} = useContext(AuthorContext)
-  const style = { color: "inherit", textDecoration: "inherit" };
 
   // Logout
   const logout = () => {
