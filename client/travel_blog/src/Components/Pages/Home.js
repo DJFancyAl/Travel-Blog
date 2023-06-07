@@ -5,7 +5,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-// import "../../css/style.css";
+import "../../css_old/style.css";
 
 import image1 from "../../images/image1.png";
 import image2 from "../../images/image2.png";
@@ -24,37 +24,36 @@ function Home() {
     "https://c0.wallpaperflare.com/preview/453/499/723/men-nature-and-landscapes-travel-adventure.jpg",
   ];
 
+  // Link Style
+  const linkStyle = {
+    textDecoration: 'none',
+    color: '#2b5f57'
+  }
+
   return (
     <Container>
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel className="shadow" activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[0]} alt="First slide" />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Keep calm and travel on.</h3>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[1]} alt="Second slide" />
-
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Always say yes to new adventures.</h3>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item style={{ height: 500, marginBottom: 10 }}>
+        <Carousel.Item style={{ height: 500, marginBottom: 20 }}>
           <img className="d-block w-100" src={imgs[2]} alt="Third slide" />
-
           <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
+            <h3>What's on my bucket list? Everywhere...</h3>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <CardGroup>
-        <Card style={{ margin: 10, border: 0 }}>
+      <CardGroup className="text-center">
+        <Card className="shadow" style={{ margin: 10, border: 0 }}>
           <div style={{ height: 200 }}>
             <Card.Img
               variant="top"
@@ -64,14 +63,14 @@ function Home() {
           </div>
           <Card.Body>
             <Card.Text>
-              <Link to="/blogs">TRAVEL BLOG</Link>
+              <Link style={linkStyle} to="/blogs"><h6 className="lead fw-bold">Travel Blog</h6></Link>
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Read what travelers are saying...</small>
           </Card.Footer>
         </Card>
-        <Card style={{ margin: 10, border: 0 }}>
+        <Card className="shadow" style={{ margin: 10, border: 0 }}>
           <div style={{ height: 200 }}>
             <Card.Img
               variant="top"
@@ -80,13 +79,13 @@ function Home() {
             />
           </div>
           <Card.Body>
-            <Card.Text>TRAVEL TIPS</Card.Text>
+            <Link style={linkStyle} to="/Travel"><h6 className="lead fw-bold">Travel Tips</h6></Link>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Learn the best way to travel!</small>
           </Card.Footer>
         </Card>
-        <Card style={{ margin: 10, border: 0 }}>
+        <Card className="shadow" style={{ margin: 10, border: 0 }}>
           <div style={{ height: 200 }}>
             <Card.Img
               variant="top"
@@ -95,26 +94,19 @@ function Home() {
             />
           </div>
           <Card.Body>
-            <Link to="/Destination">DESIRED DESTINATION</Link>
+            <Link style={linkStyle} to="/destinations"><h6 className="lead fw-bold">Desired Destinations</h6></Link>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
+            <small className="text-muted">Figure out where to go...</small>
           </Card.Footer>
         </Card>
       </CardGroup>
 
-      <Card>
-        <Card.Header>Quote</Card.Header>
+      <Card className="mb-5 text-center shadow">
+        <Card.Header>Let's get the adventure started!</Card.Header>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <p>
-              {" "}
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              posuere erat a ante.{" "}
-            </p>
-            <footer className="blockquote-footer">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </footer>
+            <p>A journey of a thousand miles begins with a single step. – Lao Tzu.</p>
           </blockquote>
         </Card.Body>
       </Card>

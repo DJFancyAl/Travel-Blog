@@ -4,22 +4,22 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { AuthorContext } from '../Context/AuthorContext';
+import { AuthorContext } from "../Context/AuthorContext";
 import { useNavigate } from "react-router-dom";
 import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
 import travelBlogLogo from '../images/travel-blog-logo.png'
 
 function NavBar() {
+  // State
   const navigate = useNavigate();
   const {author, setAuthor} = useContext(AuthorContext)
-  const style = { color: "inherit", textDecoration: "inherit" };
 
   // Logout
   const logout = () => {
     setAuthor({});
     localStorage.clear();
     navigate("/");
-  }
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
@@ -40,6 +40,8 @@ function NavBar() {
             <Nav.Link as={NavLink} to="/blogs">Blogs</Nav.Link>
             <Nav.Link as={NavLink} to="/authors">Authors</Nav.Link>
             {author._id && <Nav.Link as={NavLink} to="/blog/new">Write Blog</Nav.Link>}
+            <Nav.Link as={NavLink} to="/destinations">Destinations</Nav.Link>
+            <Nav.Link as={NavLink} to="/travel">Travel Tips</Nav.Link>
           </Nav>
           {author._id ? <Nav>
             <div>
