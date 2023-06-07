@@ -12,7 +12,7 @@ import ShowAuthor from "./Components/Pages/ShowAuthor";
 import Register from "./Components/Pages/Register";
 import Login from "./Components/Pages/Login";
 import Profile from "./Components/Pages/Profile";
-import Destination from "./Destination";
+import Destination from "./Components/Pages/Destination";
 import Travel from "./Components/Pages/Travel";
 import ResponsiveAppBar from "./Components/NavBar";
 import { AuthorContext } from "./Context/AuthorContext";
@@ -100,7 +100,8 @@ function App() {
               <Route path="/authors/register" element={<Register />} />
               <Route path="/authors/login" element={<Login />} />
               <Route path="/authors/profile" element={<Profile />} />
-              <Route path="/destination" element={<Destination />} />
+              <Route path="/destinations" element={<Destination />} />
+              <Route path="/travel" element={<Travel />} />
             </Routes>
             }
           </div>

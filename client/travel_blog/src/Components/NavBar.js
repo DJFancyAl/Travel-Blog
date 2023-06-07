@@ -40,6 +40,8 @@ function NavBar() {
             <Nav.Link as={NavLink} to="/blogs">Blogs</Nav.Link>
             <Nav.Link as={NavLink} to="/authors">Authors</Nav.Link>
             {author._id && <Nav.Link as={NavLink} to="/blog/new">Write Blog</Nav.Link>}
+            <Nav.Link as={NavLink} to="/destinations">Destinations</Nav.Link>
+            <Nav.Link as={NavLink} to="/travel">Travel Tips</Nav.Link>
           </Nav>
           {author._id ? <Nav>
             <div>

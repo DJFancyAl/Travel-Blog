@@ -1,7 +1,8 @@
-import React from "react";
-import "../../css_old/style.css";
+import Container from 'react-bootstrap/Container';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 const Travel = () => {
+  // Tips
   const milestoneTips = [
     "Pack light to avoid excess baggage fees",
     "Research local customs and traditions before visiting",
@@ -11,14 +12,14 @@ const Travel = () => {
   ];
 
   return (
-    <div>
-      <h1>Milestone traveler Tips</h1>
-      <ul>
+    <Container>
+      <h1 className='mb-4'>Milestone traveler Tips</h1>
+      <ListGroup>
         {milestoneTips.map((tip, index) => (
-          <li key={index}>{tip}</li>
+          <ListGroup.Item className='text-center p-3 border border-primary' key={index}><h5>{tip}</h5></ListGroup.Item>
         ))}
-      </ul>
-    </div>
+      </ListGroup>
+    </Container>
   );
 };
 
