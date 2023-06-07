@@ -1,37 +1,91 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+
+
 * {
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-image: #edeee8;
 }
 
-.custom-container {
-  height: 200px;
-  width: 200px; /* Set the desired width */
-  display: flex;
-  justify-content: center;
+body {
+  color: #242526;
+  margin: 0 50px;
+}
+
+.nav {
+  scale: 0.8;
+  padding-left: 30px;
+  position: fixed;
   align-items: center;
-}
-
-.custom-container img {
+  justify-content: center;
+  bottom: 30px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 75px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  background-color: #242526;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex;
+  color: #ff4f00;
+  border-radius: 55px;
+  z-index: 1;
 }
 
-.image-container {
-  width: 100px; /* Set the desired width KEEP THIS FOR THE BOTTOM IMAGES */
-  height: 100px; /* Set the desired height */
-  overflow: hidden; /* Optional - hides any overflow */
+.nav-link {
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  float: left;
 }
 
-.image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.icon-Add-Blog{
+  z-index: 1;
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:14%;
+  right:11%;
+  background-color: transparent;
+  color:#ff4f00;
+  border-radius:50px;
 }
 
-nav {
+.nav-icon {
+  color: #ff4f00;
+  text-decoration: none;
+}
+
+.Home{
+  margin-left: 4.5%;
+}
+
+.Author{
+  margin-left: 5%;
+}
+
+.Blogs{
+  margin-left: 4%;
+}
+.nav-text {
+  max-width: 150px;
+  color: #ff4f00;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #edeee8;
+}
+
+/* nav {
   position: fixed;
   top: 0;
   width: 100%;
@@ -41,114 +95,138 @@ nav {
   min-height: 8vh;
   background-color: #ff4f00;
   font-family: "Poppins", sans-serif;
-}
 
-.logo {
-  color: #edeee8;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 20px;
-}
-
-.brand-text {
-  font-size: 1.5rem; /* Adjust the font size as needed */
-}
-
-.navlinks {
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-}
-
-.navlinks li {
-  list-style: none;
-}
-
-.navlinks a {
-  color: rgb(226, 226, 226);
-  text-decoration: none;
-  letter-spacing: 3px;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.menubtn {
-  display: none;
-}
-
-.menubtn div {
-  width: 25px;
-  height: 3px;
-  background-color: #edeee8;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-body {
-  color: #242526;
-}
-
-/* footer {
 } */
 
+/* Blog page css */
+.cardBody{
+  background-color: #fff;
+  height: 310px;
+  width: 850px;
+  /* box-shadow: 2px 2px 5px #9E9E9E, -1px -1px 5px #9E9E9E;  */
+  border-bottom: solid 1px #242526;
+  border-radius: 3px; 
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: 210px;
+  margin: 20px;
+  padding: 10px;
+  justify-content: flex-between; 
+}
+
+/* hr {
+  height:2px;
+  border-width:0;
+  color:black;
+  background-color:black
+} */
+.img-container {
+  width: 200px;
+  height: 130px;
+  /* grid-column: 1; */
+  object-fit: fill;
+  object-position: center center;
+  background-color: #c1b7b4;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+}
+.card-title {
+  margin-left: 3%;
+  /* grid-column: 2; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  margin-bottom: 0;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #555;
+}
+
+.excerpt {
+  /* grid-column: 2 / 3; */
+  width: 800px;
+}
+
+.author {
+  padding-top: 30px;
+  text-decoration: none !important;
+  font-weight: 700;
+  justify-content: space-start;
+}
+
+.blogDate{
+  padding-top: 10px;
+  font-weight: 700;
+}
+
+.blankSpace {
+  height:250px;
+}
+
+@media screen and (max-width: 1200px) {
+  .nav{
+    scale: 0.9;
+  }
+}
+
 @media screen and (max-width: 1024px) {
-  .navlinks {
-    width: 60%;
+  .nav{
+    scale: 0.8;
+  }
+  .cardBody {
+    margin-right: 40%;
+    scale: 0.9;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nav{
+    scale: 0.8;
+  }
+  .cardBody {
+    margin-right: 400px;
+    scale: 0.95;
   }
 }
 
 @media screen and (max-width: 768px) {
-  body {
-    overflow-x: hidden;
+  .nav{
+    scale: 0.8;
   }
-
-  .navlinks {
-    position: fixed;
-    right: 0px;
-    height: 92vh;
-    top: 8vh;
-    background-color: #ff4f00;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
-  }
-
-  .navlinks li {
-    opacity: 0;
-  }
-
-  .menubtn {
-    display: block;
-    cursor: pointer;
+  .cardBody {
+    margin:0 10%;
+    scale: 0.8;
   }
 }
 
-.nav-active {
-  transform: translateX(0%);
-}
-
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
+@media  screen and (max-width: 600px) {
+  .Container {
+    margin: 0%;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  .nav{
+    scale: 0.7;
   }
+  .cardBody {
+    margin-right: 10%;
+    scale: 0.7;
+  }
+  
 }
 
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.toggle .line2 {
-  opacity: 0;
-}
-
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
+@media  screen and (max-width: 480px) {
+  
+  .nav{
+    scale: 0.7;
+  }
+  .cardBody {
+    scale: 0.4;
+  }
+  
 }

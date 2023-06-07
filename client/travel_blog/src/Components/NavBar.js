@@ -4,7 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
-import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2 } from "react-icons/md";
+import { MdLogin, MdLogout, MdPersonAddAlt1, MdPerson2, MdOutlineAddCircle, MdHomeFilled, MdGroup, MdArticle, MdOutlineAccountCircle} from "react-icons/md";
 
 function YourComponent() {
   const style = {
@@ -32,19 +32,6 @@ function NavBar({ author, setAuthor }) {
           <Link to="/" style={style}>
             <Navbar.Brand>Milestone Travel Blog</Navbar.Brand>
           </Link>
-          <Nav className="me-auto">
-            <Nav.Link as={NavLink} to="/blogs">
-              Blogs
-            </Nav.Link>
-            <Nav.Link as={NavLink} to="/authors">
-              Authors
-            </Nav.Link>
-            {author._id && (
-              <Nav.Link as={NavLink} to="/blog/new">
-                Write Blog
-              </Nav.Link>
-            )}
-          </Nav>
         </div>
         {author._id ? (
           <div className="d-flex align-items-center">
@@ -64,6 +51,41 @@ function NavBar({ author, setAuthor }) {
           </div>
         )}
       </Container>
+      {/* new nav bar */}
+      {author._id && (
+            <Link to="/blog/new">
+              <MdOutlineAddCircle size={45} className="icon-Add-Blog"/>
+            </Link>
+      )}
+      <nav className="nav">
+        <Link to="/" className="nav-link" >
+          <MdHomeFilled size={25} className="nav-icon Home"/>
+          <p class="nav-text">Home</p>
+        </Link>
+
+        <Link to="/authors"className="nav-link" >
+          <MdGroup size={25} className="nav-icon Author"/>
+          <p class="nav-text">Author</p>
+        </Link>
+
+        <Link to="/blogs" className="nav-link" >
+          <MdArticle size={25} className="nav-icon Blogs"/>
+          <p class="nav-text">Blogs</p>
+        </Link>
+
+        {author._id ? (
+          <Link className="nav-link" to="./authors/profile">
+            <MdOutlineAccountCircle size={25} className="nav-icon Account" />
+            <p class="nav-text Username">Hello {author.username}!</p>
+          </Link>
+          ) : (
+            <Link className="nav-link" to="./authors/profile">
+              <MdOutlineAccountCircle size={25} className="nav-icon Register" />
+              <p class="nav-text Register">Register</p>
+            </Link>
+          )
+        }
+      </nav>
     </Navbar>
   );
 }
