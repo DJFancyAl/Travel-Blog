@@ -18,8 +18,6 @@ Our Blog site is for the niche who likes to travel the world and share their exp
 
 ![rshotv](https://github.com/DJFancyAl/Travel-Blog/assets/104106586/ff70c031-98b6-46fe-81f4-a582a29076a7)
 
-- **Cross platform**
-
 - **Authentication & Authorization**
 
 The great thing about this application is that it is accessible to anyone! Users have the ability to register for an account, customize their profile, and create original content. After an account is created, the user is able to easily log in and work with their blogs or comments:
@@ -61,7 +59,13 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 
 #### Images
 
-Belgrade, Servia by [Lonely Planet](https://lp-cms-production.imgix.net/features/2017/09/Belgrade-Knez-Mihailova-street-af958c3aa30c.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1024).
+Belgrade, Serbia by [Lonely Planet](https://lp-cms-production.imgix.net/features/2017/09/Belgrade-Knez-Mihailova-street-af958c3aa30c.jpg?auto=format&fit=crop&ar=1:1&q=75&w=1024).
+
+Italy Coast by [wallpapercrafter.com](https://wallpapercrafter.com/th800/33038-Italy-coast-4K-4k-wallpaper-4K-Tyrrhenian-Sea-houses-sky-clouds-booking-rest-travel.jpg)
+
+Mountain Wallpaper by [memes.co](https://memes.co.in/wallpapers/uploads/1625904083.jpg)
+
+Men Nature and Landscapes by [wallpaperflare.com](https://c0.wallpaperflare.com/preview/453/499/723/men-nature-and-landscapes-travel-adventure.jpg)
 
 ## License
 
