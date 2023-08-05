@@ -35,8 +35,9 @@ function App() {
   useEffect(() => {
     async function getBlogs() {
       setIsLoading(true)
-      const response = await fetch("http://localhost:3001/blogs");
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}blogs`);
       const data = await response.json();
+      console.log(data)
       setBlogs(data.blogs);
       setAuthors(data.authors);
       setIsLoading(false)
@@ -47,7 +48,7 @@ function App() {
 
   // Add Blog
   const addBlog = async (newBlog) => {
-    const response = await fetch("http://localhost:3001/blogs", {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}blogs`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +63,7 @@ function App() {
 
   // Delete Blog
   const deleteBlog = async (id) => {
-    const response = await fetch(`http://localhost:3001/blogs/${id}`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVER_URL}blogs/${id}`, {
       method: "delete",
       headers: {
         "Content-Type": "application/json",

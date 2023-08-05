@@ -7,9 +7,9 @@ import Carousel from "react-bootstrap/Carousel";
 
 import "../../css_old/style.css";
 
-import image1 from "../../images/image1.png";
+import image0 from "../../images/image0.jpg";
 import image2 from "../../images/image2.png";
-import image3 from "../../images/image3.png";
+import image10 from "../../images/image10.jpg";
 
 function Home() {
   const [index, setIndex] = useState(0);
@@ -57,7 +57,7 @@ function Home() {
           <div style={{ height: 200 }}>
             <Card.Img
               variant="top"
-              src={image1}
+              src={image0}
               style={{ objectFit: "cover", height: "100%" }}
             />
           </div>
@@ -89,7 +89,7 @@ function Home() {
           <div style={{ height: 200 }}>
             <Card.Img
               variant="top"
-              src={image3}
+              src={image10}
               style={{ objectFit: "cover", height: "100%" }}
             />
           </div>

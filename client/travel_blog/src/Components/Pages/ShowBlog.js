@@ -22,7 +22,7 @@ function ShowBlog( { deleteBlog } ) {
   // Fetch Blog
   useEffect(() => {
     async function getBlog() {
-      const response = await fetch(`http://localhost:3001/blogs/${id}`)
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}blogs/${id}`)
       const data = await response.json();
       
       setBlog(data)

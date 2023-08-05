@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Post from '../Post';
 
 function Blogs( { blogs } ) {
-    
+
   // Create the Blog List
   const blogList = blogs.map(blog => {
     return (

@@ -18,7 +18,7 @@ function Comment( { comment, deleteComment } ) {
     
     // Delete Comment
     const removeComment = async () => {
-        const response = await fetch(`http://localhost:3001/comments/${comment._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}comments/${comment._id}`, {
             method: "delete",
             headers: {
                 'Content-Type': 'application/json',

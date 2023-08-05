@@ -15,7 +15,7 @@ function ShowAuthor() {
     // Fetch Blog
     useEffect(() => {
         async function getShownAuthor() {
-        const response = await fetch(`http://localhost:3001/authors/${id}`)
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authors/${id}`)
         const data = await response.json();
         setShownAuthor(data)
         }

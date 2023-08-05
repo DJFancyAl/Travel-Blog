@@ -32,7 +32,7 @@ function Profile() {
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://localhost:3001/authors/${author._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authors/${author._id}`, {
         method: "put",
         headers: {
             'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function Profile() {
 
     // Delete Profile
     const deleteProfile = async () => {
-        const response = await fetch(`http://localhost:3001/authors/${author._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}authors/${author._id}`, {
             method: "delete",
             headers: {
                 'Content-Type': 'application/json',

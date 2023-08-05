@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c2164086.css",
+    "main.js": "/static/js/main.6ddcf56d.js",
+    "static/media/image6.jpg": "/static/media/image6.aaf6db8faf82db440600.jpg",
+    "static/media/image8.jpg": "/static/media/image8.824fecef233774b10d88.jpg",
+    "static/media/image5.jpg": "/static/media/image5.709437d0212b03e19c52.jpg",
+    "static/media/image7.jpg": "/static/media/image7.37e416530919681ae594.jpg",
+    "static/media/image0.jpg": "/static/media/image0.97d3295fe11e4ee34a91.jpg",
+    "static/media/image9.jpg": "/static/media/image9.f2b69b7d32aa30905d4b.jpg",
+    "static/media/image10.jpg": "/static/media/image10.42b215f9293ea762a8cb.jpg",
+    "static/media/image4.jpg": "/static/media/image4.efe0ebdb2c64dc0047eb.jpg",
+    "static/media/image2.png": "/static/media/image2.14ec6ba6ebe1b886d4fa.png",
+    "static/media/travel-blog-logo.png": "/static/media/travel-blog-logo.216553e164f185d753dc.png",
+    "index.html": "/index.html",
+    "main.c2164086.css.map": "/static/css/main.c2164086.css.map",
+    "main.6ddcf56d.js.map": "/static/js/main.6ddcf56d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2164086.css",
+    "static/js/main.6ddcf56d.js"
+  ]
+}
